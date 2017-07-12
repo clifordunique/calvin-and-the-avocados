@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CalvinController : MonoBehaviour {
+// default key map for keyboard
+// arrow to move
+// space to jump
+// shift to run
 
-	// body 
-	public float MAX_SPEED = 1.5f;
+// default key map for a xbox controller
+// joystick to move
+// a to jump
+// x to run
+public class CalvinController : MonoBehaviour
+{
+
+	// body
+	public float MAX_SPEED = 5f;
 	public Rigidbody2D rigidbody;
 
 
@@ -13,52 +23,55 @@ public class CalvinController : MonoBehaviour {
 	public Transform groundCheck;
 	public LayerMask whatIsGround;
 	float GROUND_RADIUS = 0.2f;
-	bool isGrounded = false; // since our character does not begin on the ground
+	bool isGrounded = false;
+	// since our character does not begin on the ground
 
 	// animation
 	bool isGoingRight = true;
 	Animator anim;
 
 	// jump
-	public float JUMP_FORCE = 350f;
+	public float JUMP_FORCE = 250f;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		rigidbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 
-		// TODO: create own key for jump
-		if (isGrounded && Input.GetKeyDown (KeyCode.Space)) {
+		// when jump button is press
+		if (isGrounded && Input.GetButton("Jump")) {
 			anim.SetBool ("ground", false);
 			rigidbody.AddForce (new Vector2 (0, JUMP_FORCE));
-
 		}
 
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
 
 		// ground check
-		isGrounded = Physics2D.OverlapCircle(groundCheck.position, GROUND_RADIUS, whatIsGround);
+		isGrounded = Physics2D.OverlapCircle (groundCheck.position, GROUND_RADIUS, whatIsGround);
 		anim.SetBool ("ground", isGrounded);
 		anim.SetFloat ("vspeed", rigidbody.velocity.y);
 
 
 		// movement
 		// get axis
-		float move = Input.GetAxis("Horizontal");
+		float move = Input.GetAxis ("Horizontal");
 
 		// TODO: make transition for walk and run
 		// set animation
-		anim.SetFloat("speed", Mathf.Abs(move));
+		anim.SetFloat ("speed", Mathf.Abs (move));
 
 		// move body
-		rigidbody.velocity = new Vector2 (move * MAX_SPEED, GetComponent<Rigidbody2D>().velocity.y);
+		rigidbody.velocity = new Vector2 (move * MAX_SPEED, GetComponent<Rigidbody2D> ().velocity.y);
 
 		// flip
 		if (move > 0 && !isGoingRight)
@@ -68,7 +81,8 @@ public class CalvinController : MonoBehaviour {
 	}
 
 	// change sprite direction
-	void Flip() {
+	void Flip ()
+	{
 		isGoingRight = !isGoingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
