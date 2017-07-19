@@ -22,7 +22,7 @@ public class CalvinController : MonoBehaviour
 	// ground
 	public Transform groundCheck;
 	public LayerMask whatIsGround;
-	float GROUND_RADIUS = 0.2f;
+	float GROUND_RADIUS = 0.25f;
 	bool isGrounded = false;
 	// since our character does not begin on the ground
 
@@ -31,7 +31,7 @@ public class CalvinController : MonoBehaviour
 	Animator anim;
 
 	// jump
-	public float JUMP_FORCE = 250f;
+	public float JUMP_FORCE = 625f;
 
 	// Use this for initialization
 	void Start ()
@@ -45,7 +45,7 @@ public class CalvinController : MonoBehaviour
 	{
 
 		// when jump button is press
-		if (isGrounded && Input.GetButton("Jump")) {
+		if (isGrounded && Input.GetButtonDown("Jump")) {
 			anim.SetBool ("ground", false);
 			rigidbody.AddForce (new Vector2 (0, JUMP_FORCE));
 		}
