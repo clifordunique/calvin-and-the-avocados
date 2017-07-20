@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C1A75520-6738-DEFD-E029-EA380DBBE467}</ProjectGuid>
+    <ProjectGuid>{1DF6DA1F-3A1A-7DE4-AB45-261D51328E96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CalvinController.cs" />
+     <Compile Include="Assets\Scripts\Controller2D.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/opt/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
