@@ -13,6 +13,7 @@ public class Controller2D : MonoBehaviour
 	const float SKIN_WIDTH = .015f;
 	public int horizontalRayCount = 4;
 	public int verticalRayCount = 4;
+	float maxClimbAngle = 80;
 
 	float horizontalRaySpacing;
 	float verticalRaySpacing;
@@ -68,6 +69,17 @@ public class Controller2D : MonoBehaviour
 			Debug.DrawRay (rayOrigin, Vector2.up * directionX * rayLength, Color.red);
 
 			if (hit) {
+
+				// ascending slope
+				float slopeAngle = Vector2.Angle (hit.normal, Vector2.up);
+
+				if (i == 0 && slopeAngle <= maxClimbAngle) {
+					ClimbSlope (ref velocity, slopeAngle);
+					print (slopeAngle);
+				}
+
+
+				// collisions
 				velocity.x = (hit.distance - SKIN_WIDTH) * directionX;
 				rayLength = hit.distance;
 
@@ -105,6 +117,19 @@ public class Controller2D : MonoBehaviour
 				collisions.above = (directionY == 1);
 			}
 		}
+	}
+
+	/// <summary>
+	/// Climbs the slope. 
+	/// </summary>
+	/// <param name="velocity">Velocity.</param>
+	/// <param name="slopeAngle">Slope angle.</param>
+	void ClimbSlope (ref Vector3 velocity, float slopeAngle) {
+		float moveDistance = Mathf.Abs (velocity.x);
+		velocity.y = Mathf.Sin (slopeAngle * Mathf.Deg2Rad) * moveDistance;
+		velocity.x = Mathf.Cos (slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign (velocity.x);
+
+
 	}
 
 	/// <summary>
