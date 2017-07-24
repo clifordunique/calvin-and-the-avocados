@@ -126,10 +126,14 @@ public class Controller2D : MonoBehaviour
 	/// <param name="slopeAngle">Slope angle.</param>
 	void ClimbSlope (ref Vector3 velocity, float slopeAngle) {
 		float moveDistance = Mathf.Abs (velocity.x);
-		velocity.y = Mathf.Sin (slopeAngle * Mathf.Deg2Rad) * moveDistance;
-		velocity.x = Mathf.Cos (slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign (velocity.x);
+		float climbVelocityY = Mathf.Sin (slopeAngle * Mathf.Deg2Rad) * moveDistance;
 
+		if (velocity.y <= climbVelocityY) {
+			velocity.y = climbVelocityY;
+			velocity.x = Mathf.Cos (slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign (velocity.x);
+			collisions.below = true;
 
+		}
 	}
 
 	/// <summary>
@@ -183,12 +187,15 @@ public class Controller2D : MonoBehaviour
 		public bool above, below;
 		public bool left, right;
 
+		public bool climbingSlope;
+
 		/// <summary>
 		/// Reset this instance.
 		/// </summary>
 		public void Reset() {
 			above = below = false;
 			left = right = false;
+			climbingSlope = false;
 		}
 	}
 
