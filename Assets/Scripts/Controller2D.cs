@@ -10,9 +10,11 @@ using System.Collections;
 public class Controller2D : MonoBehaviour
 {
 	public LayerMask collisionMask; 
-	const float SKIN_WIDTH = .015f;
+
+	const float skinWidth = .015f;
 	public int horizontalRayCount = 4;
 	public int verticalRayCount = 4;
+
 	float maxClimbAngle = 80;
 
 	float horizontalRaySpacing;
@@ -58,7 +60,7 @@ public class Controller2D : MonoBehaviour
 		float directionX = Mathf.Sign (velocity.x);
 
 		// force positive with ABS to stock value
-		float rayLength = Mathf.Abs (velocity.x) + SKIN_WIDTH;
+		float rayLength = Mathf.Abs (velocity.x) + skinWidth;
 
 		for (int i = 0; i < horizontalRayCount; i++) {
 			// witch direction are we moving ?
@@ -74,17 +76,33 @@ public class Controller2D : MonoBehaviour
 				float slopeAngle = Vector2.Angle (hit.normal, Vector2.up);
 
 				if (i == 0 && slopeAngle <= maxClimbAngle) {
+					float distanceToSlopeStart = 0;
+
+					// starting to climb a new slope
+					if (slopeAngle != collisions.slopeAngleOld) {
+						distanceToSlopeStart = hit.distance-skinWidth;
+						velocity.x -= distanceToSlopeStart * directionX;
+
+					}
+
 					ClimbSlope (ref velocity, slopeAngle);
-					print (slopeAngle);
+					velocity.x += distanceToSlopeStart * directionX;
+				}
+
+				// collisions and not climbing slope
+				if (!collisions.climbingSlope || slopeAngle > maxClimbAngle) {
+					velocity.x = (hit.distance - skinWidth) * directionX;
+					rayLength = hit.distance;
+
+					if (collisions.climbingSlope) {
+						velocity.y = Mathf.Tan (collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs (velocity.x);
+					}
+
+					collisions.left = (directionX == -1);
+					collisions.right = (directionX == 1);
 				}
 
 
-				// collisions
-				velocity.x = (hit.distance - SKIN_WIDTH) * directionX;
-				rayLength = hit.distance;
-
-				collisions.left = (directionX == -1);
-				collisions.right = (directionX == 1);
 			}
 		}
 	}
@@ -99,7 +117,7 @@ public class Controller2D : MonoBehaviour
 		float directionY = Mathf.Sign (velocity.y);
 
 		// force positive with ABS to stock value
-		float rayLength = Mathf.Abs (velocity.y) + SKIN_WIDTH;
+		float rayLength = Mathf.Abs (velocity.y) + skinWidth;
 
 		for (int i = 0; i < verticalRayCount; i++) {
 			// witch direction are we moving ?
@@ -110,8 +128,12 @@ public class Controller2D : MonoBehaviour
 			Debug.DrawRay (rayOrigin, Vector2.right * directionY * rayLength, Color.red);
 
 			if (hit) {
-				velocity.y = (hit.distance - SKIN_WIDTH) * directionY;
+				velocity.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
+
+				if (collisions.climbingSlope) {
+					velocity.x = velocity.y / Mathf.Tan (collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign (velocity.x);
+				}
 
 				collisions.below = (directionY == -1);
 				collisions.above = (directionY == 1);
@@ -132,6 +154,8 @@ public class Controller2D : MonoBehaviour
 			velocity.y = climbVelocityY;
 			velocity.x = Mathf.Cos (slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign (velocity.x);
 			collisions.below = true;
+			collisions.climbingSlope = true;
+			collisions.slopeAngle = slopeAngle;
 
 		}
 	}
@@ -145,7 +169,7 @@ public class Controller2D : MonoBehaviour
 		Bounds bounds = collider.bounds;
 
 		// take skin width in account
-		bounds.Expand (SKIN_WIDTH * -2);
+		bounds.Expand (skinWidth * -2);
 
 		raycastOrigins.bottomLeft = new Vector2 (bounds.min.x, bounds.min.y);
 		raycastOrigins.bottomRight = new Vector2 (bounds.max.x, bounds.min.y);
@@ -160,7 +184,7 @@ public class Controller2D : MonoBehaviour
 	{
 		// get collider bounds
 		Bounds bounds = collider.bounds;
-		bounds.Expand (SKIN_WIDTH * -2);
+		bounds.Expand (skinWidth * -2);
 
 		// does value is between horizontalRaycount and 2 ?
 		horizontalRayCount = Mathf.Clamp (horizontalRayCount, 2, int.MaxValue);
@@ -188,6 +212,7 @@ public class Controller2D : MonoBehaviour
 		public bool left, right;
 
 		public bool climbingSlope;
+		public float slopeAngle, slopeAngleOld;
 
 		/// <summary>
 		/// Reset this instance.
@@ -196,6 +221,8 @@ public class Controller2D : MonoBehaviour
 			above = below = false;
 			left = right = false;
 			climbingSlope = false;
+			slopeAngleOld = slopeAngle;
+			slopeAngle = 0;
 		}
 	}
 
