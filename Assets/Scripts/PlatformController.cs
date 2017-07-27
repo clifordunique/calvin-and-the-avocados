@@ -8,6 +8,8 @@ public class PlatformController : RaycastController
 	public LayerMask passengerMask;
 	public Vector3 move;
 
+	List<PassengerMovement> passengerMovement;
+
 	// Use this for initialization
 	public override void Start ()
 	{
@@ -21,18 +23,28 @@ public class PlatformController : RaycastController
 		UpdateRaycastOrigins ();
 		Vector3 velocity = move * Time.deltaTime;
 
-		MovePassengers (velocity);
+		CalculatePassengerMovement (velocity);
+
+		MovePassengers (true);
 		transform.Translate (velocity);
+		MovePassengers (false);
+	}
+
+	void MovePassengers (bool beforeMovePlatform)
+	{
+
+		
 	}
 
 	/// <summary>
 	/// Moves the passengers (any controller2d).
 	/// </summary>
 	/// <param name="velocity">Velocity.</param>
-	void MovePassengers (Vector3 velocity)
+	void CalculatePassengerMovement (Vector3 velocity)
 	{
 
 		HashSet<Transform> movedPassengers = new HashSet<Transform> ();
+		passengerMovement = new List<PassengerMovement> ();
 
 		float directionX = Mathf.Sign (velocity.x);
 		float directionY = Mathf.Sign (velocity.y);
@@ -123,4 +135,25 @@ public class PlatformController : RaycastController
 		}
 		
 	}
+
+	/// <summary>
+	/// Passenger movement.
+	/// </summary>
+	struct PassengerMovement
+	{
+		public Transform transform;
+		public Vector3 velocity;
+		public bool standingOnPlatform;
+		public bool moveBeforePlatform;
+
+		public PassengerMovement (Transform _transform, Vector3 _velocity, bool _standingOnPlatform, bool _moveBeforePlatform)
+		{
+			transform = _transform;
+			velocity = _velocity;
+			standingOnPlatform = _standingOnPlatform;
+			moveBeforePlatform = _moveBeforePlatform;
+			
+		}
+	}
 }
+
