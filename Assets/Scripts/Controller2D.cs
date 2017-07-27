@@ -21,7 +21,8 @@ public class Controller2D : RaycastController
 	/// Move the player by moving his velocity
 	/// </summary>
 	/// <param name="velocity">Velocity.</param>
-	public void Move (Vector3 velocity)
+	/// <param name="standingOnPlatform">Standing on platform.</param>
+	public void Move (Vector3 velocity, bool standingOnPlatform = false)
 	{
 		UpdateRaycastOrigins ();
 		collisions.Reset ();
@@ -38,6 +39,10 @@ public class Controller2D : RaycastController
 		}
 
 		transform.Translate (velocity);
+
+		if (standingOnPlatform) {
+			collisions.below = true;
+		}
 	}
 
 	/// <summary>
@@ -61,6 +66,10 @@ public class Controller2D : RaycastController
 			Debug.DrawRay (rayOrigin, Vector2.up * directionX * rayLength, Color.red);
 
 			if (hit) {
+
+				if (hit.distance == 0) {
+					continue;
+				}
 
 				// ascending slope
 				float slopeAngle = Vector2.Angle (hit.normal, Vector2.up);
