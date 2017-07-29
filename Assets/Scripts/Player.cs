@@ -10,7 +10,7 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
 
-	public float jumpHeight = 4;
+	public float maxJumpHeight = 4;
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
 	float timeToWallUnstick;
 
 	float gravity;
-	float jumpVelocity;
+	float maxJumpVelocity;
+	float minJumpVelocity;
 	Vector3 velocity;
 	float velocityXSmoothing;
 
@@ -41,13 +42,14 @@ public class Player : MonoBehaviour
 		controller = GetComponent<Controller2D> ();
 
 		// since gravity must be negative
-		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 
-		// must be positive
-		jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+		// jump
+		maxJumpVelocity = Mathf.Abs (gravity) * timeToJumpApex;
+		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpVelocity);
 
 		// info
-		print ("Gravity: " + gravity + " Jump Velocity: " + jumpVelocity);
+		print ("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
 	}
 
 	void Update ()
@@ -58,7 +60,7 @@ public class Player : MonoBehaviour
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 
 		float targetVelocityX = input.x * moveSpeed;
-		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 
 		// wall jump
 		bool wallSliding = false;
@@ -85,10 +87,6 @@ public class Player : MonoBehaviour
 			}
 		}
 
-		if (controller.collisions.above || controller.collisions.below) {
-			velocity.y = 0;
-		}
-
 		if (Input.GetButtonDown ("Jump")) {
 
 			if (wallSliding) {
@@ -110,12 +108,23 @@ public class Player : MonoBehaviour
 			}
 
 			if (controller.collisions.below) {
-				velocity.y = jumpVelocity;
+				velocity.y = maxJumpVelocity;
 			}
 		}
 
+		if (Input.GetButtonUp ("Jump")) {
+			if (velocity.y > minJumpVelocity) {
+				velocity.y = minJumpVelocity;
+			}
+		}
+
+
 		// gravity * time in deconds it tool to complete the last frame
 		velocity.y += gravity * Time.deltaTime;
-		controller.Move (velocity * Time.deltaTime);
+		controller.Move (velocity * Time.deltaTime, input);
+
+		if (controller.collisions.above || controller.collisions.below) {
+			velocity.y = 0;
+		}
 	}
 }
