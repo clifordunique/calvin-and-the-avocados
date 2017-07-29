@@ -22,12 +22,21 @@ public class RaycastController : MonoBehaviour
 	public BoxCollider2D collider;
 	public RaycastOrigins raycastOrigins;
 
-	public virtual void Start ()
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
+	public virtual void Awake ()
 	{
 		collider = GetComponent<BoxCollider2D> ();
-		CalculateRaySpacing ();
 	}
 
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
+	public virtual void Start ()
+	{
+		CalculateRaySpacing ();
+	}
 
 	/// <summary>
 	/// Updates the raycast origins.
