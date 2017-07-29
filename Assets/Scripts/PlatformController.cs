@@ -14,7 +14,7 @@ public class PlatformController : RaycastController
 	public bool cyclic;
 	public float waitTime;
 
-	[Range(0,2)]
+	[Range (0, 2)]
 	public float easeAmount;
 
 	int fromWaypointIndex;
@@ -55,11 +55,12 @@ public class PlatformController : RaycastController
 	/// </summary>
 	/// <param name="x"></param>
 	/// <returns>Easing value</returns>
-	float Ease (float x) {
+	float Ease (float x)
+	{
 		float a = easeAmount + 1;
-		return Mathf.Pow (x,a) / Mathf.Pow (1-x, a);
+		return Mathf.Pow (x, a) / Mathf.Pow (1 - x, a);
 	}
-	
+
 	/// <summary>
 	/// Calculate platform movement
 	/// </summary>
@@ -147,7 +148,7 @@ public class PlatformController : RaycastController
 				RaycastHit2D hit = Physics2D.Raycast (rayOrigin, Vector2.up * directionY, rayLength, passengerMask);
 
 				// we found the passenger and see how far we gonna move him
-				if (hit) {
+				if (hit && hit.distance != 0) {
 
 					if (!movedPassengers.Contains (hit.transform)) {
 						movedPassengers.Add (hit.transform);
@@ -176,7 +177,7 @@ public class PlatformController : RaycastController
 				RaycastHit2D hit = Physics2D.Raycast (rayOrigin, Vector2.up * directionY, rayLength, passengerMask);
 
 				// we found the passenger and see how far we gonna move him
-				if (hit) {
+				if (hit && hit.distance != 0) {
 
 					if (!movedPassengers.Contains (hit.transform)) {
 						movedPassengers.Add (hit.transform);
@@ -202,7 +203,7 @@ public class PlatformController : RaycastController
 				RaycastHit2D hit = Physics2D.Raycast (rayOrigin, Vector2.up, rayLength, passengerMask);
 
 				// we found the passenger and see how far we gonna move him
-				if (hit) {
+				if (hit && hit.distance != 0) {
 
 					if (!movedPassengers.Contains (hit.transform)) {
 						movedPassengers.Add (hit.transform);
