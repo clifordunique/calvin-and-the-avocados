@@ -68,7 +68,7 @@ public class PlatformController : RaycastController
 	Vector3 CalculatePlatformMovement ()
 	{
 
-		if (Time.time < nextMoveTime) {
+		if (Time.time < nextMoveTime || globalWaypoints.Length == 0) {
 			return Vector3.zero;
 		}
 
