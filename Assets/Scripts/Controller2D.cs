@@ -274,6 +274,9 @@ public class Controller2D : RaycastController
 		public int faceDir;
 		public bool fallingThroughPlatform;
 
+		/// <summary>
+		/// Reset this instance.
+		/// </summary>
 		public void Reset ()
 		{
 			above = below = false;
@@ -284,6 +287,7 @@ public class Controller2D : RaycastController
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
 		}
+
 	}
 
 }
