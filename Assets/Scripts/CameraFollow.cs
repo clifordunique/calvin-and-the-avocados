@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamaraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
 
 	public Controller2D target;
