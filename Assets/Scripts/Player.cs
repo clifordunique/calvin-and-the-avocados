@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 	float gravity;
 	float maxJumpVelocity;
 	float minJumpVelocity;
-	Vector3 velocity;
+	public Vector3 velocity;
 	float velocityXSmoothing;
 
 	Controller2D controller;
@@ -41,12 +41,16 @@ public class Player : MonoBehaviour
 	bool wallSliding;
 	int wallDirX;
 
+	Animator anim;
+	public bool isFacingRight = true;
+
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
 	void Start ()
 	{
 		controller = GetComponent<Controller2D> ();
+		anim = GetComponent<Animator> ();
 
 		// since gravity must be negative
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -72,8 +76,25 @@ public class Player : MonoBehaviour
 		controller.Move (velocity * Time.deltaTime, directionalInput);
 
 		if (controller.collisions.above || controller.collisions.below) {
+			anim.SetBool ("jumping", false);
 			velocity.y = 0;
 		}
+
+		if (velocity.x > 0 && isFacingRight) {
+			Flip ();
+		} else if (velocity.x < 0 && !isFacingRight) {
+			Flip ();
+		}
+	}
+
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
+	/// <returns>The update.</returns>
+	void FixedUpdate ()
+	{
+		anim.SetFloat ("speed", Mathf.Abs (velocity.x));
+		anim.SetFloat ("vspeed", velocity.y);
 	}
 
 
@@ -93,6 +114,7 @@ public class Player : MonoBehaviour
 	public void OnJumpInputDown ()
 	{
 
+		anim.SetBool ("jumping", true);
 		if (wallSliding) {
 			// trying to move on the same direction of the input
 			if (wallDirX == directionalInput.x) {
@@ -125,6 +147,16 @@ public class Player : MonoBehaviour
 		if (velocity.y > minJumpVelocity) {
 			velocity.y = minJumpVelocity;
 		}
+	}
+
+	void Flip ()
+	{
+		isFacingRight = !isFacingRight;
+
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
+
 	}
 
 	/// <summary>
@@ -160,6 +192,8 @@ public class Player : MonoBehaviour
 
 			}
 		}
+
+		anim.SetBool ("sliding", wallSliding);
 		
 	}
 
