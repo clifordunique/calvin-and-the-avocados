@@ -15,6 +15,7 @@ public class Controller2D : RaycastController
 	[HideInInspector]
 	public Vector2 playerInput;
 
+
 	public override void Start ()
 	{
 		base.Start ();

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
 	float moveSpeed = 6;
+	float runSpeed = 10;
 
 	// e.g. x: 7.5 y: 16
 	public Vector2 wallJumpClimb;
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
 	int wallDirX;
 
 	Animator anim;
-	public bool isFacingRight = true;
+	bool isFacingLeft;
 
 	/// <summary>
 	/// Start this instance.
@@ -54,13 +55,13 @@ public class Player : MonoBehaviour
 
 		// since gravity must be negative
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+	
+		isFacingLeft = false;
 
 		// jump
 		maxJumpVelocity = Mathf.Abs (gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpVelocity);
 
-		// info
-		print ("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
 	}
 
 	/// <summary>
@@ -80,9 +81,9 @@ public class Player : MonoBehaviour
 			velocity.y = 0;
 		}
 
-		if (velocity.x > 0 && isFacingRight) {
+		if (velocity.x > 0 && isFacingLeft) {
 			Flip ();
-		} else if (velocity.x < 0 && !isFacingRight) {
+		} else if (velocity.x < 0 && !isFacingLeft) {
 			Flip ();
 		}
 	}
@@ -106,6 +107,17 @@ public class Player : MonoBehaviour
 	public void SetDirectionalInput (Vector2 Input)
 	{
 		directionalInput = Input;
+	}
+
+
+	public void onRunInputDown ()
+	{
+		anim.SetBool ("running", true);
+	}
+
+	public void onRunInputUp ()
+	{
+		anim.SetBool ("running", false);
 	}
 
 	/// <summary>
@@ -151,7 +163,7 @@ public class Player : MonoBehaviour
 
 	void Flip ()
 	{
-		isFacingRight = !isFacingRight;
+		isFacingLeft = !isFacingLeft;
 
 		Vector3 scale = transform.localScale;
 		scale.x *= -1;
