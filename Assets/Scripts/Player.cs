@@ -204,8 +204,6 @@ public class Player : MonoBehaviour
 
 			}
 		}
-
-		anim.SetBool ("sliding", wallSliding);
 		
 	}
 
