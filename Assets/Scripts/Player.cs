@@ -14,7 +14,9 @@ public class Player : MonoBehaviour
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
-	float moveSpeed = 6;
+	const float SPEED = 6;
+	float moveSpeed;
+	float runSpeed;
 
 	// e.g. x: 7.5 y: 16
 	public Vector2 wallJumpClimb;
@@ -32,7 +34,7 @@ public class Player : MonoBehaviour
 	float gravity;
 	float maxJumpVelocity;
 	float minJumpVelocity;
-	Vector3 velocity;
+	public Vector3 velocity;
 	float velocityXSmoothing;
 
 	Controller2D controller;
@@ -41,22 +43,29 @@ public class Player : MonoBehaviour
 	bool wallSliding;
 	int wallDirX;
 
+	Animator anim;
+	bool isFacingLeft;
+
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
 	void Start ()
 	{
 		controller = GetComponent<Controller2D> ();
+		anim = GetComponent<Animator> ();
 
 		// since gravity must be negative
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+
+		moveSpeed = SPEED;
+		runSpeed = SPEED * 2;
+	
+		isFacingLeft = false;
 
 		// jump
 		maxJumpVelocity = Mathf.Abs (gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpVelocity);
 
-		// info
-		print ("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
 	}
 
 	/// <summary>
@@ -72,8 +81,25 @@ public class Player : MonoBehaviour
 		controller.Move (velocity * Time.deltaTime, directionalInput);
 
 		if (controller.collisions.above || controller.collisions.below) {
+			anim.SetBool ("jumping", false);
 			velocity.y = 0;
 		}
+
+		if (velocity.x > 0 && isFacingLeft) {
+			Flip ();
+		} else if (velocity.x < 0 && !isFacingLeft) {
+			Flip ();
+		}
+	}
+
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
+	/// <returns>The update.</returns>
+	void FixedUpdate ()
+	{
+		anim.SetFloat ("speed", Mathf.Abs (velocity.x));
+		anim.SetFloat ("vspeed", velocity.y);
 	}
 
 
@@ -87,12 +113,26 @@ public class Player : MonoBehaviour
 		directionalInput = Input;
 	}
 
+
+	public void onRunInputDown ()
+	{
+		moveSpeed = runSpeed;
+		anim.SetBool ("running", true);
+	}
+
+	public void onRunInputUp ()
+	{
+		moveSpeed = SPEED;
+		anim.SetBool ("running", false);
+	}
+
 	/// <summary>
 	/// Raises the jump input down event.
 	/// </summary>
 	public void OnJumpInputDown ()
 	{
 
+		anim.SetBool ("jumping", true);
 		if (wallSliding) {
 			// trying to move on the same direction of the input
 			if (wallDirX == directionalInput.x) {
@@ -128,6 +168,19 @@ public class Player : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Flip this instance.
+	/// </summary>
+	void Flip ()
+	{
+		isFacingLeft = !isFacingLeft;
+
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
+
+	}
+
+	/// <summary>
 	/// Handles the wall sliding.
 	/// </summary>
 	/// <returns>The wall sliding.</returns>
@@ -140,6 +193,7 @@ public class Player : MonoBehaviour
 		wallSliding = false;
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
 			wallSliding = true;
+
 
 			// don't pass max sliding speed
 			if (velocity.y < -wallSlideSpeedMax) {
@@ -160,6 +214,9 @@ public class Player : MonoBehaviour
 
 			}
 		}
+			
+		anim.SetBool ("jumping", !wallSliding);
+		anim.SetBool ("sliding", wallSliding);
 		
 	}
 

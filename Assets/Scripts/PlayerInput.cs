@@ -29,5 +29,14 @@ public class PlayerInput : MonoBehaviour
 		if (Input.GetButtonUp ("Jump")) {
 			player.OnJumpInputUp ();
 		}
+
+
+		if (Input.GetButtonDown ("Run") || Input.GetAxis("Run") != 0) {
+			player.onRunInputDown ();
+		}
+
+		if (Input.GetButtonUp ("Run") || Input.GetAxis("Run") == 0) {
+			player.onRunInputUp ();
+		}
 	}
 }
