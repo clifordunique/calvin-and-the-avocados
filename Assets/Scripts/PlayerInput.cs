@@ -31,11 +31,11 @@ public class PlayerInput : MonoBehaviour
 		}
 
 
-		if (Input.GetButtonDown ("Run")) {
+		if (Input.GetButtonDown ("Run") || Input.GetAxis("Run") != 0) {
 			player.onRunInputDown ();
 		}
 
-		if (Input.GetButtonUp ("Run")) {
+		if (Input.GetButtonUp ("Run") || Input.GetAxis("Run") == 0) {
 			player.onRunInputUp ();
 		}
 	}
