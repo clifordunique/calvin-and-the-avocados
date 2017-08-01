@@ -14,8 +14,9 @@ public class Player : MonoBehaviour
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
-	float moveSpeed = 6;
-	float runSpeed = 10;
+	const float SPEED = 6;
+	float moveSpeed;
+	float runSpeed;
 
 	// e.g. x: 7.5 y: 16
 	public Vector2 wallJumpClimb;
@@ -55,6 +56,9 @@ public class Player : MonoBehaviour
 
 		// since gravity must be negative
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+
+		moveSpeed = SPEED;
+		runSpeed = SPEED * 2;
 	
 		isFacingLeft = false;
 
@@ -112,11 +116,13 @@ public class Player : MonoBehaviour
 
 	public void onRunInputDown ()
 	{
+		moveSpeed = runSpeed;
 		anim.SetBool ("running", true);
 	}
 
 	public void onRunInputUp ()
 	{
+		moveSpeed = SPEED;
 		anim.SetBool ("running", false);
 	}
 
@@ -161,6 +167,9 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Flip this instance.
+	/// </summary>
 	void Flip ()
 	{
 		isFacingLeft = !isFacingLeft;
@@ -185,6 +194,7 @@ public class Player : MonoBehaviour
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
 			wallSliding = true;
 
+
 			// don't pass max sliding speed
 			if (velocity.y < -wallSlideSpeedMax) {
 				velocity.y = -wallSlideSpeedMax;
@@ -204,6 +214,9 @@ public class Player : MonoBehaviour
 
 			}
 		}
+			
+		anim.SetBool ("jumping", !wallSliding);
+		anim.SetBool ("sliding", wallSliding);
 		
 	}
 

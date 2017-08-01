@@ -727,7 +727,7 @@ MonoBehaviour:
   lookAheadDstX: 4
   lookSmoothTimeX: 0.5
   verticalSmoothTime: 0.2
-  focusAreaSize: {x: 3, y: 5}
+  focusAreaSize: {x: 10, y: 5}
 --- !u!1 &1638591978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,9 +1063,9 @@ BoxCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0.0625, z: 0, w: 0.0625}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.875, y: 1}
+    oldSize: {x: 0.875, y: 0.875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
