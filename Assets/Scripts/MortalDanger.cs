@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableController : RaycastController
+public class MortalDanger : RaycastController
 {
 
 	public LayerMask playerMask;
-	public string level;
-	bool collected;
 
-	/// <summary>
-	/// Start this instance.
-	/// </summary>
+	// Use this for initialization
 	void Start ()
 	{
 		base.Start ();
@@ -24,12 +20,6 @@ public class CollectableController : RaycastController
 	{
 		UpdateRaycastOrigins ();
 		OnCollisionWithPlayer ();
-
-
-		if (collected) {
-			Application.LoadLevel (level);
-		}
-
 	}
 
 	/// <summary>
@@ -46,7 +36,7 @@ public class CollectableController : RaycastController
 
 			// we found the passenger and see how far we gonna move him
 			if (hit) {
-				collected = true;
+				print ("hit");
 			}
 		}
 	}
