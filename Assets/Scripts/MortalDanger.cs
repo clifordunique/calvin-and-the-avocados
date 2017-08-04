@@ -31,10 +31,8 @@ public class MortalDanger : RaycastController
 		float rayLength = 1 + skinWidth;
 
 		for (int i = 0; i < verticalRayCount; i++) {
-			// witch direction are we moving ?
 			RaycastHit2D hit = Physics2D.Raycast (raycastOrigins.center, Vector2.up, rayLength, playerMask);
 
-			// we found the passenger and see how far we gonna move him
 			if (hit) {
 				print ("hit");
 			}
