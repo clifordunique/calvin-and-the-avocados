@@ -97,6 +97,11 @@ public class Controller2D : RaycastController
 					continue;
 				}
 
+                if (hit.collider.tag == "Mortal")
+                {
+                    collisions.mortal = true;
+                }
+
 				// ascending slope
 				float slopeAngle = Vector2.Angle (hit.normal, Vector2.up);
 
@@ -153,7 +158,6 @@ public class Controller2D : RaycastController
 			Debug.DrawRay (rayOrigin, Vector2.right * directionY, Color.red);
 
 			if (hit) {
-
 				if (hit.collider.tag == "Through") {
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
@@ -168,7 +172,12 @@ public class Controller2D : RaycastController
 						Invoke ("ResetFallingThroughPlatform", .5f);
 						continue;
 					}
-				}					
+				}
+
+                if (hit.collider.tag == "Mortal")
+                {
+                    collisions.mortal = true;
+                }
 
 				moveAmount.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
@@ -259,6 +268,8 @@ public class Controller2D : RaycastController
 		collisions.fallingThroughPlatform = false;
 	}
 
+
+
 	/// <summary>
 	/// Collision info.
 	/// Where exactly collision happen ?
@@ -274,6 +285,7 @@ public class Controller2D : RaycastController
 		public Vector2 moveAmountOld;
 		public int faceDir;
 		public bool fallingThroughPlatform;
+        public bool mortal;
 
 		/// <summary>
 		/// Reset this instance.
@@ -284,10 +296,20 @@ public class Controller2D : RaycastController
 			left = right = false;
 			climbingSlope = false;
 			descendingSlope = false;
+            mortal = false;
 
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
 		}
+
+        /// <summary>
+        /// If we hit something will return true
+        /// </summary>
+        /// <returns>Boolean</returns>
+        public bool hasHit()
+        {
+            return above || below || left || right;
+        }
 
 	}
 

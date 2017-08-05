@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectableController : RaycastController
 {
@@ -12,7 +13,7 @@ public class CollectableController : RaycastController
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
-	void Start ()
+	public override void Start ()
 	{
 		base.Start ();
 	}
@@ -25,9 +26,8 @@ public class CollectableController : RaycastController
 		UpdateRaycastOrigins ();
 		OnCollisionWithPlayer ();
 
-
 		if (collected) {
-			Application.LoadLevel (level);
+            SceneManager.LoadScene(level);
 		}
 
 	}

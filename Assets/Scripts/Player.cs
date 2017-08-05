@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 // dependencies
 [RequireComponent (typeof(Controller2D))]
@@ -100,6 +101,8 @@ public class Player : MonoBehaviour
 	{
 		anim.SetFloat ("speed", Mathf.Abs (velocity.x));
 		anim.SetFloat ("vspeed", velocity.y);
+        HandleDeathAndRespawn();
+
 	}
 
 
@@ -114,12 +117,18 @@ public class Player : MonoBehaviour
 	}
 
 
+    /// <summary>
+    /// Make run on input down
+    /// </summary>
 	public void onRunInputDown ()
 	{
 		moveSpeed = runSpeed;
 		anim.SetBool ("running", true);
 	}
 
+    /// <summary>
+    /// Stop running on input up
+    /// </summary>
 	public void onRunInputUp ()
 	{
 		moveSpeed = SPEED;
@@ -194,7 +203,6 @@ public class Player : MonoBehaviour
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
 			wallSliding = true;
 
-
 			// don't pass max sliding speed
 			if (velocity.y < -wallSlideSpeedMax) {
 				velocity.y = -wallSlideSpeedMax;
@@ -219,6 +227,32 @@ public class Player : MonoBehaviour
 		anim.SetBool ("sliding", wallSliding);
 		
 	}
+
+    /// <summary>
+    /// Kill the player and make it respawn
+    /// </summary>
+    void HandleDeathAndRespawn ()
+    {
+
+        if (controller.collisions.mortal)
+        {
+            velocity.y = 0;
+            velocity.x = 0;
+            anim.SetBool("death", true);
+            Invoke ("Respawn", 1);
+        }
+
+    }
+
+    /// <summary>
+    /// Respawn meen restart level
+    /// </summary>
+    void Respawn()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        SceneManager.UnloadSceneAsync(scene);
+        SceneManager.LoadScene(scene);
+    }
 
 	/// <summary>
 	/// Calculates the velocity.
