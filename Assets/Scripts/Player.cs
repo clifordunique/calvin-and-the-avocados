@@ -239,7 +239,7 @@ public class Player : MonoBehaviour
             velocity.y = 0;
             velocity.x = 0;
             anim.SetBool("death", true);
-            Invoke ("Respawn", 1);
+            Invoke ("Respawn", 1.25f);
         }
 
     }
@@ -250,7 +250,6 @@ public class Player : MonoBehaviour
     void Respawn()
     {
         string scene = SceneManager.GetActiveScene().name;
-        SceneManager.UnloadSceneAsync(scene);
         SceneManager.LoadScene(scene);
     }
 
