@@ -79,7 +79,9 @@ public class Player : MonoBehaviour
 
 		HandleWallSliding ();
 
-		controller.Move (velocity * Time.deltaTime, directionalInput);
+        if (!controller.collisions.mortal) {
+            controller.Move (velocity * Time.deltaTime, directionalInput);
+        }
 
 		if (controller.collisions.above || controller.collisions.below) {
 			anim.SetBool ("jumping", false);
@@ -102,7 +104,6 @@ public class Player : MonoBehaviour
 		anim.SetFloat ("speed", Mathf.Abs (velocity.x));
 		anim.SetFloat ("vspeed", velocity.y);
         HandleDeathAndRespawn();
-
 	}
 
 
@@ -200,7 +201,7 @@ public class Player : MonoBehaviour
 
 		// wall jump
 		wallSliding = false;
-		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
+		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0 && !controller.collisions.mortal) {
 			wallSliding = true;
 
 			// don't pass max sliding speed
@@ -236,8 +237,6 @@ public class Player : MonoBehaviour
 
         if (controller.collisions.mortal)
         {
-            velocity.y = 0;
-            velocity.x = 0;
             anim.SetBool("death", true);
             Invoke ("Respawn", 1.25f);
         }
