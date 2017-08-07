@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 360d7098119ccd6449ed84b93a761bcb
-timeCreated: 1502106704
+timeCreated: 1502134159
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -109,10 +109,10 @@ TextureImporter:
       name: traps_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 1
-        width: 14
-        height: 14
+        x: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
