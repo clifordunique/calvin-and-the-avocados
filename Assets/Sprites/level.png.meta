@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3a2fd9c56b71a4bccbf8d36bec54bec8
-timeCreated: 1501846834
+timeCreated: 1502134306
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,15 @@ TextureImporter:
     21300010: level_1
     21300012: level_grass0
     21300014: level_bg
+    21300016: level_2
+    21300018: level_3
+    21300020: level_4
+    21300022: level_5
+    21300024: level_6
+    21300026: level_7
+    21300028: level_8
+    21300030: level_9
+    21300032: level_10
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -49,7 +58,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -66,7 +75,7 @@ TextureImporter:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -74,7 +83,7 @@ TextureImporter:
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,7 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level_rock0
+      name: level_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,7 +146,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: level_rock1
+      name: level_1
       rect:
         serializedVersion: 2
         x: 16
@@ -151,7 +160,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: level_wall0
+      name: level_2
       rect:
         serializedVersion: 2
         x: 32
@@ -165,7 +174,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: level_wall1
+      name: level_3
       rect:
         serializedVersion: 2
         x: 48
@@ -179,7 +188,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: level_0
+      name: level_4
       rect:
         serializedVersion: 2
         x: 64
@@ -193,7 +202,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: level_1
+      name: level_5
       rect:
         serializedVersion: 2
         x: 80
@@ -207,10 +216,24 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: level_grass0
+      name: level_6
       rect:
         serializedVersion: 2
         x: 96
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: level_7
+      rect:
+        serializedVersion: 2
+        x: 112
         y: 0
         width: 16
         height: 16
@@ -221,15 +244,43 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: level_bg
+      name: level_8
       rect:
         serializedVersion: 2
-        x: 112
+        x: 128
         y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: level_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: level_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
