@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e517a777616034037b37290efb664122
-timeCreated: 1502309543
+timeCreated: 1502311501
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -83,9 +83,9 @@ TextureImporter:
         x: 1
         y: 0
         width: 29
-        height: 20
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -94,12 +94,12 @@ TextureImporter:
       name: cloud_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 1
-        width: 29
-        height: 20
+        x: 33
+        y: 2
+        width: 30
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
