@@ -27,7 +27,7 @@ public class CollectableController : RaycastController
 		OnCollisionWithPlayer ();
 
 		if (collected) {
-            SceneManager.LoadScene(level);
+			SceneManager.LoadScene (level);
 		}
 
 	}

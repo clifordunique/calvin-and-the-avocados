@@ -72,7 +72,6 @@ public class CameraFollow : MonoBehaviour
 	bool KeepFollowing ()
 	{
 
-		print(focusArea);
 		return focusArea.bottom >= bottomLeftLimit.y &&
 		focusArea.top <= topRightLimit.y &&
 		focusArea.left >= bottomLeftLimit.x &&

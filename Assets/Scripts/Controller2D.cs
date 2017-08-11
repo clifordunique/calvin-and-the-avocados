@@ -97,10 +97,9 @@ public class Controller2D : RaycastController
 					continue;
 				}
 
-                if (hit.collider.tag == "Mortal")
-                {
-                    collisions.mortal = true;
-                }
+				if (hit.collider.tag == "Mortal") {
+					collisions.mortal = true;
+				}
 
 				// ascending slope
 				float slopeAngle = Vector2.Angle (hit.normal, Vector2.up);
@@ -174,10 +173,9 @@ public class Controller2D : RaycastController
 					}
 				}
 
-                if (hit.collider.tag == "Mortal")
-                {
-                    collisions.mortal = true;
-                }
+				if (hit.collider.tag == "Mortal") {
+					collisions.mortal = true;
+				}
 
 				moveAmount.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
@@ -285,7 +283,7 @@ public class Controller2D : RaycastController
 		public Vector2 moveAmountOld;
 		public int faceDir;
 		public bool fallingThroughPlatform;
-        public bool mortal;
+		public bool mortal;
 
 		/// <summary>
 		/// Reset this instance.
@@ -296,20 +294,20 @@ public class Controller2D : RaycastController
 			left = right = false;
 			climbingSlope = false;
 			descendingSlope = false;
-            mortal = false;
+			mortal = false;
 
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
 		}
 
-        /// <summary>
-        /// If we hit something will return true
-        /// </summary>
-        /// <returns>Boolean</returns>
-        public bool hasHit()
-        {
-            return above || below || left || right;
-        }
+		/// <summary>
+		/// If we hit something will return true
+		/// </summary>
+		/// <returns>Boolean</returns>
+		public bool hasHit ()
+		{
+			return above || below || left || right;
+		}
 
 	}
 

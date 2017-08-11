@@ -30,12 +30,11 @@ public class PlayerInput : MonoBehaviour
 			player.OnJumpInputUp ();
 		}
 
-
-		if (Input.GetButtonDown ("Run") || Input.GetAxis("Run") != 0) {
+		if (Input.GetButtonDown ("Run") || Input.GetAxis ("Run") != 0) {
 			player.onRunInputDown ();
 		}
 
-		if (Input.GetButtonUp ("Run") || Input.GetAxis("Run") == 0) {
+		if (Input.GetButtonUp ("Run") || Input.GetAxis ("Run") == 0) {
 			player.onRunInputUp ();
 		}
 	}
