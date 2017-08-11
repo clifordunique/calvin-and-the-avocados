@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 // dependencies
 [RequireComponent (typeof(Controller2D))]
+[RequireComponent (typeof(AudioSource))]
 
 /// <summary>
 /// Player
@@ -11,6 +12,12 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
+	// sounds
+	public AudioClip jumpAudio;
+	public AudioClip gameOverAudio;
+	private AudioSource sourceAudio;
+
+	// settings
 	public float maxJumpHeight = 4;
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
@@ -32,6 +39,7 @@ public class Player : MonoBehaviour
 	public float wallStickTime = .25f;
 	float timeToWallUnstick;
 
+	// velocity and gravity
 	float gravity;
 	float maxJumpVelocity;
 	float minJumpVelocity;
@@ -39,11 +47,13 @@ public class Player : MonoBehaviour
 	float velocityXSmoothing;
 
 	Controller2D controller;
-
 	Vector2 directionalInput;
+
+	// wall jumping
 	bool wallSliding;
 	int wallDirX;
 
+	// animation
 	Animator anim;
 	bool isFacingLeft;
 
@@ -54,6 +64,7 @@ public class Player : MonoBehaviour
 	{
 		controller = GetComponent<Controller2D> ();
 		anim = GetComponent<Animator> ();
+		sourceAudio = GetComponent<AudioSource> ();
 
 		// since gravity must be negative
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -79,9 +90,9 @@ public class Player : MonoBehaviour
 
 		HandleWallSliding ();
 
-        if (!controller.collisions.mortal) {
-            controller.Move (velocity * Time.deltaTime, directionalInput);
-        }
+		if (!controller.collisions.mortal) {
+			controller.Move (velocity * Time.deltaTime, directionalInput);
+		}
 
 		if (controller.collisions.above || controller.collisions.below) {
 			anim.SetBool ("jumping", false);
@@ -103,7 +114,7 @@ public class Player : MonoBehaviour
 	{
 		anim.SetFloat ("speed", Mathf.Abs (velocity.x));
 		anim.SetFloat ("vspeed", velocity.y);
-        HandleDeathAndRespawn();
+		HandleDeathAndRespawn ();
 	}
 
 
@@ -118,18 +129,18 @@ public class Player : MonoBehaviour
 	}
 
 
-    /// <summary>
-    /// Make run on input down
-    /// </summary>
+	/// <summary>
+	/// Make run on input down
+	/// </summary>
 	public void onRunInputDown ()
 	{
 		moveSpeed = runSpeed;
 		anim.SetBool ("running", true);
 	}
 
-    /// <summary>
-    /// Stop running on input up
-    /// </summary>
+	/// <summary>
+	/// Stop running on input up
+	/// </summary>
 	public void onRunInputUp ()
 	{
 		moveSpeed = SPEED;
@@ -142,7 +153,11 @@ public class Player : MonoBehaviour
 	public void OnJumpInputDown ()
 	{
 
-		anim.SetBool ("jumping", true);
+		if (!anim.GetBool ("jumping")) {
+			sourceAudio.PlayOneShot (jumpAudio);
+			anim.SetBool ("jumping", true);
+		}
+
 		if (wallSliding) {
 			// trying to move on the same direction of the input
 			if (wallDirX == directionalInput.x) {
@@ -229,28 +244,29 @@ public class Player : MonoBehaviour
 		
 	}
 
-    /// <summary>
-    /// Kill the player and make it respawn
-    /// </summary>
-    void HandleDeathAndRespawn ()
-    {
+	/// <summary>
+	/// Kill the player and make it respawn
+	/// </summary>
+	void HandleDeathAndRespawn ()
+	{
 
-        if (controller.collisions.mortal)
-        {
-            anim.SetBool("death", true);
-            Invoke ("Respawn", 1.25f);
-        }
+		if (controller.collisions.mortal && !anim.GetBool ("death")) {
+			sourceAudio.Stop ();
+			sourceAudio.PlayOneShot (gameOverAudio);
+			anim.SetBool ("death", true);
+			Invoke ("Respawn", 1.25f);
+		}
 
-    }
+	}
 
-    /// <summary>
-    /// Respawn meen restart level
-    /// </summary>
-    void Respawn()
-    {
-        string scene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(scene);
-    }
+	/// <summary>
+	/// Respawn meen restart level
+	/// </summary>
+	void Respawn ()
+	{
+		string scene = SceneManager.GetActiveScene ().name;
+		SceneManager.LoadScene (scene);
+	}
 
 	/// <summary>
 	/// Calculates the velocity.

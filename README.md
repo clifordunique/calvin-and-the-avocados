@@ -13,6 +13,6 @@ Every musics and sounds are under create common license. Beside of that, I want 
 * Sounds effects are from freesound.org
   * Jump by [jeckkech](http://freesound.org/people/jeckkech/)
   * Game over arcade by [myfox14](http://freesound.org/people/myfox14/)
-  * Negative beep by [themusicalnomad](http://freesound.org/people/themusicalnomad/)
   * Menu select by [killkhan](http://freesound.org/people/killkhan/)
+
 
