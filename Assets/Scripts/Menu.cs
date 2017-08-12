@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class Menu : MonoBehaviour {
 
-    private bool isPaused = false;
     public string scene;
     public Button start;
     public Button quit;
