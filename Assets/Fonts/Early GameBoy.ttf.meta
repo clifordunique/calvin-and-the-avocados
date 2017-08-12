@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 205d7a86bf186234c9015bf04b93cb69
+timeCreated: 1502542736
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Early GameBoy
+  fontNames:
+  - Early GameBoy
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

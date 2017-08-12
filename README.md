@@ -14,5 +14,5 @@ Every musics and sounds are under create common license. Beside of that, I want 
   * Jump by [jeckkech](http://freesound.org/people/jeckkech/)
   * Game over arcade by [myfox14](http://freesound.org/people/myfox14/)
   * Menu select by [killkhan](http://freesound.org/people/killkhan/)
-
+* Fonts is Early gameboy by [Jimmy Campbell](http://www.dafont.com/fr/early-gameboy.font)
 
