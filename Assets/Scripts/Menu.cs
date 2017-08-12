@@ -3,44 +3,28 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class PauseMenu : MonoBehaviour {
+public class Menu : MonoBehaviour {
 
     private bool isPaused = false;
-    public GameObject pauseMenu;
-    public Button resume;
-    public Button restart;
+    public string scene;
+    public Button start;
     public Button quit;
-	Player player;
 
 	List<Button> buttons;
     int current;
     bool checkAxes = false;
 
-    // On awake
-    private void Awake()
-    {
-        pauseMenu.SetActive(false);
-        isPaused = false;
-    }
-
     // Use this for initialization
     void Start () {
 
-        player = GetComponent<Player>();
         buttons = new List<Button>();
 
-        player.inputEnable = true;
         Time.timeScale = 1f;
 
-        // resume button
-        resume = resume.GetComponent<Button>();
-        resume.onClick.AddListener(PauseManager);
-        buttons.Add(resume);
-
         // restart button
-        restart = restart.GetComponent<Button>();
-        restart.onClick.AddListener(RestartManager);
-        buttons.Add(restart);
+        start = start.GetComponent<Button>();
+        start.onClick.AddListener(StartManager);
+        buttons.Add(start);
 
         // quit button
         quit = quit.GetComponent<Button>();
@@ -52,16 +36,7 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetButtonDown("Pause"))
-        {
-            PauseManager();
-        }
-
-        if (!player.inputEnable)
-        {
-            InputMap();
-        }
+        InputMap();
 	}
 
     /// <summary>
@@ -96,38 +71,18 @@ public class PauseMenu : MonoBehaviour {
     }
 
     /// <summary>
-    /// Disable player input when we are in pause menu mode
+    /// Load level one
     /// </summary>
-    private void DisabledPlayerInput ()
+    private void StartManager()
     {
-        player.inputEnable = !isPaused;
-    }
-
-    /// <summary>
-    /// Pause/unpause game
-    /// </summary>
-    private void PauseManager()
-    {
-        isPaused = !isPaused;
-        Time.timeScale = (isPaused) ? 0f : 1f;
-        pauseMenu.SetActive(isPaused);
-        DisabledPlayerInput();
-    }
-
-    /// <summary>
-    /// Restart level
-    /// </summary>
-    private void RestartManager()
-    {
-		string scene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene (scene);
     }
 
     /// <summary>
-    /// Load main menu
+    /// Quit application
     /// </summary>
     private void QuitManager()
     {
-		SceneManager.LoadScene ("menu");
+        Application.Quit();
     }
 }
