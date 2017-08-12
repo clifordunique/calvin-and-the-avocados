@@ -47,7 +47,11 @@ public class Player : MonoBehaviour
 	float velocityXSmoothing;
 
 	Controller2D controller;
+
+    // input
 	Vector2 directionalInput;
+    [HideInInspector]
+    public bool inputEnable;
 
 	// wall jumping
 	bool wallSliding;
@@ -65,6 +69,8 @@ public class Player : MonoBehaviour
 		controller = GetComponent<Controller2D> ();
 		anim = GetComponent<Animator> ();
 		sourceAudio = GetComponent<AudioSource> ();
+
+        inputEnable = true;
 
 		// since gravity must be negative
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -191,6 +197,15 @@ public class Player : MonoBehaviour
 			velocity.y = minJumpVelocity;
 		}
 	}
+    
+    /// <summary>
+    /// Raises the pause input down event
+    /// </summary>
+    public void OnPauseInputDown ()
+    {
+        inputEnable = !inputEnable;
+        Debug.Log(inputEnable);
+    }
 
 	/// <summary>
 	/// Flip this instance.
