@@ -8,6 +8,8 @@ public class CollectableController : RaycastController
 
 	public LayerMask playerMask;
 	public string level;
+	public GameObject levelLoader;
+	LevelLoader loader;
 	bool collected;
 
 	/// <summary>
@@ -16,6 +18,7 @@ public class CollectableController : RaycastController
 	public override void Start ()
 	{
 		base.Start ();
+		loader = levelLoader.GetComponent<LevelLoader> ();
 	}
 
 	/// <summary>
@@ -27,7 +30,8 @@ public class CollectableController : RaycastController
 		OnCollisionWithPlayer ();
 
 		if (collected) {
-			SceneManager.LoadScene (level);
+			levelLoader.GetComponent<LevelLoader> ().LoadLevel (level);
+			//SceneManager.LoadScene (level);
 		}
 
 	}
