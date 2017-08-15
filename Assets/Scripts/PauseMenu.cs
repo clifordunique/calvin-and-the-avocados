@@ -3,8 +3,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
+
+// dependencies
+[RequireComponent (typeof(AudioSource))]
 public class PauseMenu : MonoBehaviour
 {
+
+    // audio
+	public AudioClip selectAudio;
+	private AudioSource sourceAudio;
 
 	private bool isPaused = false;
 	public GameObject pauseMenu;
@@ -30,6 +37,7 @@ public class PauseMenu : MonoBehaviour
 		player = GetComponent<Player> ();
 		buttons = new List<Button> ();
 
+		sourceAudio = GetComponent<AudioSource> ();
 		player.inputEnable = true;
 		Time.timeScale = 1f;
 
@@ -71,6 +79,7 @@ public class PauseMenu : MonoBehaviour
 	{
 
 		if (Input.GetAxisRaw ("Vertical") == 1 && checkAxes) {
+            sourceAudio.PlayOneShot(selectAudio);
 			Debug.Log ("input up " + current);
 			current = (current <= 0) ? 0 : --current;
 			buttons [current].Select ();
@@ -78,6 +87,7 @@ public class PauseMenu : MonoBehaviour
 		}
 
 		if (Input.GetAxisRaw ("Vertical") == -1 && checkAxes) {
+            sourceAudio.PlayOneShot(selectAudio);
 			Debug.Log ("input down before " + current);
 			int count = buttons.Count - 1;
 			current = (current == count) ? count : ++current;
