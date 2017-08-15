@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class CollectableController : RaycastController
 {
@@ -9,7 +6,6 @@ public class CollectableController : RaycastController
 	public LayerMask playerMask;
 	public string level;
 	public GameObject levelLoader;
-	LevelLoader loader;
 	bool collected;
 
 	/// <summary>
@@ -31,7 +27,6 @@ public class CollectableController : RaycastController
 
 		if (collected) {
 			levelLoader.GetComponent<LevelLoader> ().LoadLevel (level);
-			//SceneManager.LoadScene (level);
 		}
 
 	}
