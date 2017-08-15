@@ -4313,6 +4313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06aa35f6bea688641bcb51ef7a568605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectAudio: {fileID: 8300000, guid: 3788ec1f829f54be1a10676fd0e327c2, type: 3}
   pauseMenu: {fileID: 916047929}
   resume: {fileID: 206022139}
   restart: {fileID: 2023702232}
