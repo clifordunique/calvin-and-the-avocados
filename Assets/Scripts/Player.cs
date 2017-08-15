@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 // dependencies
@@ -138,7 +137,7 @@ public class Player : MonoBehaviour
 	/// <summary>
 	/// Make run on input down
 	/// </summary>
-	public void onRunInputDown ()
+	public void OnRunInputDown ()
 	{
 		moveSpeed = runSpeed;
 		anim.SetBool ("running", true);
@@ -147,7 +146,7 @@ public class Player : MonoBehaviour
 	/// <summary>
 	/// Stop running on input up
 	/// </summary>
-	public void onRunInputUp ()
+	public void OnRunInputUp ()
 	{
 		moveSpeed = SPEED;
 		anim.SetBool ("running", false);
@@ -204,7 +203,7 @@ public class Player : MonoBehaviour
     public void OnPauseInputDown ()
     {
         inputEnable = !inputEnable;
-        Debug.Log(inputEnable);
+        Debug.Log("pause menu inputenable : " + inputEnable);
     }
 
 	/// <summary>
