@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
 	public void OnJumpInputDown ()
 	{
 
-		if (!anim.GetBool ("jumping")) {
+		if (!anim.GetBool ("jumping") && !anim.GetBool ("death")) {
 			sourceAudio.PlayOneShot (jumpAudio);
 			anim.SetBool ("jumping", true);
 		}

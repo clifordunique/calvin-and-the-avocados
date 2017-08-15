@@ -14,7 +14,6 @@ public class CollectableController : RaycastController
 	public override void Start ()
 	{
 		base.Start ();
-		loader = levelLoader.GetComponent<LevelLoader> ();
 	}
 
 	/// <summary>
