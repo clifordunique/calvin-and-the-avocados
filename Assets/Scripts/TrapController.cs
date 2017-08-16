@@ -2,27 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapController : MonoBehaviour {
+/// <summary>
+/// Trap controller.
+/// </summary>
+public class TrapController : MonoBehaviour
+{
 
-    public bool isRotating;
+	public bool isRotating;
 
-	// Use this for initialization
-	void Start () {
-		
+
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
+	private void Update ()
+	{
+
+		if (isRotating) {
+			RotateTrap ();
+		}
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-        if (isRotating)
-        {
-            RotateTrap();
-        }
-
-    }
-
-    void RotateTrap()
-    {
-        transform.Rotate(Vector3.forward * -20);
-    }
+	/// <summary>
+	/// Rotates the trap.
+	/// </summary>
+	/// <returns>The trap.</returns>
+	private void RotateTrap ()
+	{
+		transform.Rotate (Vector3.forward * -20);
+	}
 }

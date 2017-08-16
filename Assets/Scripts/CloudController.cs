@@ -14,10 +14,10 @@ public class CloudController : MonoBehaviour
 	public float maxScale;
 	public float minScale;
 
-	float speed;
-	float scale;
+	private float speed;
+	private float scale;
 
-	SpriteRenderer sprite;
+	private SpriteRenderer sprite;
 
 	/// <summary>
 	/// Start this instance.

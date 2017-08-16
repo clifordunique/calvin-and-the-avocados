@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Platform controller.
+/// </summary>
 public class PlatformController : RaycastController
 {
 
 	public LayerMask passengerMask;
 
 	public Vector3[] localWaypoints;
-	Vector3[] globalWaypoints;
+	private Vector3[] globalWaypoints;
 
 	public float speed;
 	public bool cyclic;
@@ -17,15 +20,17 @@ public class PlatformController : RaycastController
 	[Range (0, 2)]
 	public float easeAmount;
 
-	int fromWaypointIndex;
-	float percentBetweenWaypoints;
+	private int fromWaypointIndex;
+	private float percentBetweenWaypoints;
 	// pourcentage between 0 and 1
-	float nextMoveTime;
+	private float nextMoveTime;
 
-	List<PassengerMovement> passengerMovement;
-	Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D> ();
+	private List<PassengerMovement> passengerMovement;
+	private Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D> ();
 
-	// Use this for initialization
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	public override void Start ()
 	{
 		base.Start ();
@@ -36,8 +41,10 @@ public class PlatformController : RaycastController
 		}
 		
 	}
-	
-	// Update is called once per frame
+
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update ()
 	{
 		UpdateRaycastOrigins ();
@@ -135,6 +142,27 @@ public class PlatformController : RaycastController
 		float directionX = Mathf.Sign (velocity.x);
 		float directionY = Mathf.Sign (velocity.y);
 
+		CalculatePassengerMovementVertical (velocity, directionY, movedPassengers);
+
+		CalculatePassengerMovementHorizontal (velocity, directionX, directionY, movedPassengers);
+
+		CalculatePassengerMovementDownward (velocity, directionY, movedPassengers);
+
+	}
+
+	/// <summary>
+	/// Calculates the passenger movement vertical.
+	/// </summary>
+	/// <returns>The passenger movement vertical.</returns>
+	/// <param name="velocity">Velocity.</param>
+	/// <param name="directionY">Direction y.</param>
+	/// <param name="movedPassengers">Moved passengers.</param>
+	private void CalculatePassengerMovementVertical (
+		Vector3 velocity, 
+		float directionY, 
+		HashSet<Transform> movedPassengers
+	)
+	{
 		// vertically moving platform
 		if (velocity.y != 0) {
 
@@ -157,12 +185,36 @@ public class PlatformController : RaycastController
 						float pushX = (directionY == 1) ? velocity.x : 0;
 						float pushY = velocity.y - (hit.distance - skinWidth) * directionY;
 
-						passengerMovement.Add (new PassengerMovement (hit.transform, new Vector3 (pushX, pushY), directionY == 1, true));
+						passengerMovement.Add (
+							new PassengerMovement (
+								hit.transform, 
+								new Vector3 (pushX, pushY), directionY == 1, 
+								true
+							)
+						);
 
 					}
 				}
 			}
 		}
+		
+	}
+
+	/// <summary>
+	/// Calculates the passenger movement horizontal.
+	/// </summary>
+	/// <returns>The passenger movement horizontal.</returns>
+	/// <param name="velocity">Velocity.</param>
+	/// <param name="directionY">Direction y.</param>
+	/// <param name="directionX">Direction x.</param>
+	/// <param name="movedPassengers">Moved passengers.</param>
+	private void CalculatePassengerMovementHorizontal (
+		Vector3 velocity, 
+		float directionX, 
+		float directionY, 
+		HashSet<Transform> movedPassengers
+	)
+	{
 
 		// Horizontally moving platform
 		if (velocity.x != 0) {
@@ -192,6 +244,22 @@ public class PlatformController : RaycastController
 			}
 		}
 
+	}
+
+	/// <summary>
+	/// Calculates the passenger movement down ward.
+	/// </summary>
+	/// <returns>The passenger movement down ward.</returns>
+	/// <param name="velocity">Velocity.</param>
+	/// <param name="directionY">Direction y.</param>
+	/// <param name="movedPassengers">Moved passengers.</param>
+	private void CalculatePassengerMovementDownward (
+		Vector3 velocity, 
+		float directionY, 
+		HashSet<Transform> movedPassengers
+	)
+	{
+
 		// Passenger on top of a horizontally or downward moving platform
 		if (directionY == -1 || velocity.y == 0 && velocity.x != 0) {
 
@@ -218,13 +286,12 @@ public class PlatformController : RaycastController
 				}
 			}
 		}
-		
 	}
 
 	/// <summary>
 	/// Passenger movement.
 	/// </summary>
-	struct PassengerMovement
+	public struct PassengerMovement
 	{
 		public Transform transform;
 		public Vector3 velocity;
@@ -250,7 +317,7 @@ public class PlatformController : RaycastController
 	/// <summary>
 	/// Ons the draw gizmos.
 	/// </summary>
-	void OnDrawGizmos ()
+	private void OnDrawGizmos ()
 	{
 		if (localWaypoints != null) {
 			Gizmos.color = Color.red;

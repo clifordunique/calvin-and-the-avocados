@@ -3,43 +3,43 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-
 // dependencies
 [RequireComponent (typeof(AudioSource))]
-public class PauseMenu : MonoBehaviour
-{
 
-    // audio
-	public AudioClip selectAudio;
-	private AudioSource sourceAudio;
+/// <summary>
+/// In-game pause menu
+/// </summary>
+public class PauseMenu : MenuController
+{
 
 	private bool isPaused = false;
 	public GameObject pauseMenu;
+
+	// UI
 	public Button resume;
 	public Button restart;
 	public Button quit;
-	Player player;
 
-	List<Button> buttons;
-	int current;
-	bool checkAxes = false;
+	// variable
+	private Player player;
 
 	// On awake
-	private void Awake ()
+	public override void Awake ()
 	{
+		base.Awake ();
 		isPaused = false;
 	}
 
-	// Use this for initialization
-	void Start ()
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
+	public override void Start ()
 	{
 
-		player = GetComponent<Player> ();
-		buttons = new List<Button> ();
+		base.Start ();
 
-		sourceAudio = GetComponent<AudioSource> ();
+		player = GetComponent<Player> ();
 		player.inputEnable = true;
-		Time.timeScale = 1f;
 
 		// resume button
 		resume = resume.GetComponent<Button> ();
@@ -56,11 +56,12 @@ public class PauseMenu : MonoBehaviour
 		quit.onClick.AddListener (QuitManager);
 		buttons.Add (quit);
 
-		current = 0;
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
+	private void Update ()
 	{
 
 		if (Input.GetButtonDown ("Pause")) {
@@ -73,44 +74,6 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Input when in pause menu mode
-	/// </summary>
-	private void InputMap ()
-	{
-
-		if (Input.GetAxisRaw ("Vertical") == 1 && checkAxes) {
-            sourceAudio.PlayOneShot(selectAudio);
-			Debug.Log ("input up " + current);
-			current = (current <= 0) ? 0 : --current;
-			buttons [current].Select ();
-			checkAxes = false;
-		}
-
-		if (Input.GetAxisRaw ("Vertical") == -1 && checkAxes) {
-            sourceAudio.PlayOneShot(selectAudio);
-			Debug.Log ("input down before " + current);
-			int count = buttons.Count - 1;
-			current = (current == count) ? count : ++current;
-			buttons [current].Select ();
-			Debug.Log ("input down after " + current);
-			checkAxes = false;
-		}
-
-		if (Input.GetAxisRaw ("Vertical") == 0 && !checkAxes) {
-			checkAxes = true;
-		}
-
-	}
-
-	/// <summary>
-	/// Disable player input when we are in pause menu mode
-	/// </summary>
-	private void DisabledPlayerInput ()
-	{
-		player.inputEnable = !isPaused;
-	}
-
-	/// <summary>
 	/// Pause/unpause game
 	/// </summary>
 	private void PauseManager ()
@@ -118,13 +81,13 @@ public class PauseMenu : MonoBehaviour
 		isPaused = !isPaused;
 		Time.timeScale = (isPaused) ? 0f : 1f;
 		pauseMenu.SetActive (isPaused);
-		DisabledPlayerInput ();
+		player.inputEnable = !isPaused;
 	}
 
 	/// <summary>
 	/// Restart level
 	/// </summary>
-	private void RestartManager ()
+	static void RestartManager ()
 	{
 		string scene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene (scene);
@@ -133,7 +96,7 @@ public class PauseMenu : MonoBehaviour
 	/// <summary>
 	/// Load main menu
 	/// </summary>
-	private void QuitManager ()
+	static void QuitManager ()
 	{
 		SceneManager.LoadScene ("menu");
 	}

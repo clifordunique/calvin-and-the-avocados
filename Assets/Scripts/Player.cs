@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent (typeof(AudioSource))]
 
 /// <summary>
-/// Player
+/// Player behaviour and actions
 /// </summary>
 public class Player : MonoBehaviour
 {
@@ -19,11 +19,11 @@ public class Player : MonoBehaviour
 	// settings
 	public float maxJumpHeight = 4;
 	public float timeToJumpApex = .4f;
-	float accelerationTimeAirborne = .2f;
-	float accelerationTimeGrounded = .1f;
-	const float SPEED = 6;
-	float moveSpeed;
-	float runSpeed;
+	private readonly float accelerationTimeAirborne = .2f;
+	private readonly float accelerationTimeGrounded = .1f;
+	private const float SPEED = 6;
+	private float moveSpeed;
+	private float runSpeed;
 
 	// e.g. x: 7.5 y: 16
 	public Vector2 wallJumpClimb;
@@ -36,40 +36,40 @@ public class Player : MonoBehaviour
 
 	public float wallSlideSpeedMax = 3;
 	public float wallStickTime = .25f;
-	float timeToWallUnstick;
+	private float timeToWallUnstick;
 
 	// velocity and gravity
-	float gravity;
-	float maxJumpVelocity;
-	float minJumpVelocity;
+	private float gravity;
+	private float maxJumpVelocity;
+	private float minJumpVelocity;
+	private float velocityXSmoothing;
 	public Vector3 velocity;
-	float velocityXSmoothing;
 
-	Controller2D controller;
+	private Controller2D controller;
 
-    // input
-	Vector2 directionalInput;
-    [HideInInspector]
-    public bool inputEnable;
+	// input
+	private Vector2 directionalInput;
+	[HideInInspector]
+	public bool inputEnable;
 
 	// wall jumping
-	bool wallSliding;
-	int wallDirX;
+	private bool wallSliding;
+	private int wallDirX;
 
 	// animation
-	Animator anim;
-	bool isFacingLeft;
+	private Animator anim;
+	private bool isFacingLeft;
 
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
-	void Start ()
+	private void Start ()
 	{
 		controller = GetComponent<Controller2D> ();
 		anim = GetComponent<Animator> ();
 		sourceAudio = GetComponent<AudioSource> ();
 
-        inputEnable = true;
+		inputEnable = true;
 
 		// since gravity must be negative
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 	/// <summary>
 	/// Update this instance.
 	/// </summary>
-	void Update ()
+	private void Update ()
 	{
 
 		CalculateVelocity ();
@@ -104,18 +104,16 @@ public class Player : MonoBehaviour
 			velocity.y = 0;
 		}
 
-		if (velocity.x > 0 && isFacingLeft) {
+		if ((velocity.x > 0 && isFacingLeft) || (velocity.x < 0 && !isFacingLeft)) {
 			Flip ();
-		} else if (velocity.x < 0 && !isFacingLeft) {
-			Flip ();
-		}
+		} 
 	}
 
 	/// <summary>
 	/// Fixeds the update.
 	/// </summary>
 	/// <returns>The update.</returns>
-	void FixedUpdate ()
+	private void FixedUpdate ()
 	{
 		anim.SetFloat ("speed", Mathf.Abs (velocity.x));
 		anim.SetFloat ("vspeed", velocity.y);
@@ -168,14 +166,12 @@ public class Player : MonoBehaviour
 			if (wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;
 				velocity.y = wallJumpClimb.y;
-			}
+			} else if (directionalInput.x == 0) {
 				// ain't touching the direction controller
-				else if (directionalInput.x == 0) {
 				velocity.x = -wallDirX * wallJumpOff.x;
 				velocity.y = wallJumpOff.y;
-			}
+			} else {
 				// input is opposite direction
-				else {
 				velocity.x = -wallDirX * wallLeap.x;
 				velocity.y = wallLeap.y;
 			}
@@ -196,20 +192,20 @@ public class Player : MonoBehaviour
 			velocity.y = minJumpVelocity;
 		}
 	}
-    
-    /// <summary>
-    /// Raises the pause input down event
-    /// </summary>
-    public void OnPauseInputDown ()
-    {
-        inputEnable = !inputEnable;
-        Debug.Log("pause menu inputenable : " + inputEnable);
-    }
+
+	/// <summary>
+	/// Raises the pause input down event
+	/// </summary>
+	public void OnPauseInputDown ()
+	{
+		inputEnable = !inputEnable;
+		Debug.Log ("pause menu inputenable : " + inputEnable);
+	}
 
 	/// <summary>
 	/// Flip this instance.
 	/// </summary>
-	void Flip ()
+	private void Flip ()
 	{
 		isFacingLeft = !isFacingLeft;
 
@@ -223,14 +219,18 @@ public class Player : MonoBehaviour
 	/// Handles the wall sliding.
 	/// </summary>
 	/// <returns>The wall sliding.</returns>
-	void HandleWallSliding ()
+	private void HandleWallSliding ()
 	{
 		// 1 wall left -1 wall right
 		wallDirX = (controller.collisions.left) ? -1 : 1;
 
 		// wall jump
 		wallSliding = false;
-		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0 && !controller.collisions.mortal) {
+		if ((controller.collisions.left || controller.collisions.right) &&
+		    !controller.collisions.below
+		    && velocity.y < 0
+		    && !controller.collisions.mortal) {
+
 			wallSliding = true;
 
 			// don't pass max sliding speed
@@ -261,7 +261,7 @@ public class Player : MonoBehaviour
 	/// <summary>
 	/// Kill the player and make it respawn
 	/// </summary>
-	void HandleDeathAndRespawn ()
+	private void HandleDeathAndRespawn ()
 	{
 
 		if (controller.collisions.mortal && !anim.GetBool ("death")) {
@@ -276,7 +276,7 @@ public class Player : MonoBehaviour
 	/// <summary>
 	/// Respawn meen restart level
 	/// </summary>
-	void Respawn ()
+	private void Respawn ()
 	{
 		string scene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene (scene);
@@ -286,10 +286,14 @@ public class Player : MonoBehaviour
 	/// Calculates the velocity.
 	/// </summary>
 	/// <returns>The velocity.</returns>
-	void CalculateVelocity ()
+	private void CalculateVelocity ()
 	{
 		float targetVelocityX = directionalInput.x * moveSpeed;
-		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
+		velocity.x = Mathf.SmoothDamp (
+			velocity.x, targetVelocityX, 
+			ref velocityXSmoothing, 
+			(controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne
+		);
 		velocity.y += gravity * Time.deltaTime;
 	}
 }

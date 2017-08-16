@@ -4,13 +4,20 @@ using UnityEngine;
 
 // dependencies
 [RequireComponent (typeof(BoxCollider2D))]
+
+/// <summary>
+/// Raycast controller.
+/// </summary>
 public class RaycastController : MonoBehaviour
 {
 
+	// const
+	private const float dstBetweenRays = .25f;
+	public const float skinWidth = .015f;
+
 	public LayerMask collisionMask;
 
-	public const float skinWidth = .015f;
-	const float dstBetweenRays = .25f;
+	// v/h raycast and spacing
 	[HideInInspector]
 	public int horizontalRayCount;
 	public int verticalRayCount;
@@ -43,6 +50,7 @@ public class RaycastController : MonoBehaviour
 	/// <summary>
 	/// Updates the raycast origins.
 	/// </summary>
+	/// <returns>The raycast origins.</returns>
 	public void UpdateRaycastOrigins ()
 	{
 		// get collider bounds
@@ -61,6 +69,7 @@ public class RaycastController : MonoBehaviour
 	/// <summary>
 	/// Calculates the ray spacing.
 	/// </summary>
+	/// <returns>The ray spacing.</returns>
 	public void CalculateRaySpacing ()
 	{
 		// get collider bounds
@@ -80,7 +89,7 @@ public class RaycastController : MonoBehaviour
 
 
 	/// <summary>
-	/// Keep raycast origins
+	/// Raycast origins.
 	/// </summary>
 	public struct RaycastOrigins
 	{

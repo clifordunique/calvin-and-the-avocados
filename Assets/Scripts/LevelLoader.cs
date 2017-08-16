@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
+/// <summary>
+/// Level loader.
+/// </summary>
 public class LevelLoader : MonoBehaviour
 {
 
@@ -36,7 +38,7 @@ public class LevelLoader : MonoBehaviour
 	/// </summary>
 	/// <returns>The async.</returns>
 	/// <param name="scene">Scene.</param>
-	IEnumerator LoadAsync (string scene)
+	private IEnumerator LoadAsync (string scene)
 	{
 		yield return null;
 
