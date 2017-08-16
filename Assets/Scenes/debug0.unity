@@ -4412,6 +4412,8 @@ MonoBehaviour:
   gameOverAudio: {fileID: 8300000, guid: a72fe7012a24d425ab45802e7a1bc65f, type: 3}
   maxJumpHeight: 4
   timeToJumpApex: 0.4
+  moveSpeed: 0
+  runSpeed: 0
   wallJumpClimb: {x: 7.5, y: 16}
   wallJumpOff: {x: 8.5, y: 7}
   wallLeap: {x: 18, y: 17}
@@ -4795,8 +4797,9 @@ GameObject:
   - component: {fileID: 2110115100}
   - component: {fileID: 2110115099}
   - component: {fileID: 2110115098}
+  - component: {fileID: 2110115103}
   m_Layer: 9
-  m_Name: saw (1)
+  m_Name: electric
   m_TagString: Mortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4938,3 +4941,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!111 &2110115103
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110115096}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 43424ea92fac14331907fbad3b374b8c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 43424ea92fac14331907fbad3b374b8c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
