@@ -22,8 +22,11 @@ public class Player : MonoBehaviour
 	private readonly float accelerationTimeAirborne = .2f;
 	private readonly float accelerationTimeGrounded = .1f;
 	private const float SPEED = 6;
-	private float moveSpeed;
-	private float runSpeed;
+
+	[HideInInspector]
+	public float moveSpeed;
+	[HideInInspector]
+	public float runSpeed;
 
 	// e.g. x: 7.5 y: 16
 	public Vector2 wallJumpClimb;

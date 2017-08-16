@@ -68,6 +68,8 @@ public class CollectableController : RaycastController
 		sourceAudio.PlayOneShot (finishAudio);
 		sprite.enabled = false;
 		player.inputEnable = false;
+		player.moveSpeed = 0;
+		player.runSpeed = 0;
 		isLoading = true;
 		Invoke ("LoadNewLevel", 3f);
 		
