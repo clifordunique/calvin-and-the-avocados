@@ -2,30 +2,33 @@
 
 // dependencies
 [RequireComponent (typeof(AudioSource))]
+
+/// <summary>
+/// Collectable controller.
+/// </summary>
 public class CollectableController : RaycastController
 {
 
-    // audio
+	// audio
 	public AudioClip finishAudio;
 	private AudioSource sourceAudio;
     
-    // layer
+	// layer
 	public LayerMask playerMask;
 
-    // player
+	// player
 	public Player player;
-    
 
-    // loader
+	// loader
 	public string level;
 	public GameObject levelLoader;
 
-    // local
-	bool collected;
-    bool isLoading = false;
+	// local
+	private bool collected;
+	private bool isLoading = false;
 
-    // sprite
-	SpriteRenderer sprite;
+	// sprite
+	private SpriteRenderer sprite;
 
 	/// <summary>
 	/// Start this instance.
@@ -44,33 +47,44 @@ public class CollectableController : RaycastController
 	/// <summary>
 	/// Update this instance.
 	/// </summary>
-	void FixedUpdate ()
+	private void FixedUpdate ()
 	{
 		UpdateRaycastOrigins ();
 		OnCollisionWithPlayer ();
 
 		if (collected && !isLoading) {
-            sourceAudio.PlayOneShot(finishAudio);
-            sprite.enabled = false;
-            player.inputEnable = false;
-            isLoading = true;
-            Invoke("LoadNewLevel", 3f);
+			FinishLevel ();
 		}
 
 	}
 
-    /// <summary>
-    /// Load new level
-    /// </summary>
-    void LoadNewLevel()
-    {
-        levelLoader.GetComponent<LevelLoader> ().LoadLevel (level);
-    }
+	/// <summary>
+	/// Execute actions when a level is complete 
+	/// by the player
+	/// </summary>
+	/// <returns>The level.</returns>
+	private void FinishLevel ()
+	{
+		sourceAudio.PlayOneShot (finishAudio);
+		sprite.enabled = false;
+		player.inputEnable = false;
+		isLoading = true;
+		Invoke ("LoadNewLevel", 3f);
+		
+	}
+
+	/// <summary>
+	/// Load new level
+	/// </summary>
+	private void LoadNewLevel ()
+	{
+		levelLoader.GetComponent<LevelLoader> ().LoadLevel (level);
+	}
 
 	/// <summary>
 	/// Raises the collision with player event.
 	/// </summary>
-	void OnCollisionWithPlayer ()
+	private void OnCollisionWithPlayer ()
 	{
 
 		float rayLength = 1 + skinWidth;
@@ -79,7 +93,7 @@ public class CollectableController : RaycastController
 			// witch direction are we moving ?
 			RaycastHit2D hit = Physics2D.Raycast (raycastOrigins.center, Vector2.up, rayLength, playerMask);
 
-			// we found the passenger and see how far we gonna move him
+			// got a collision with the player
 			if (hit) {
 				collected = true;
 			}

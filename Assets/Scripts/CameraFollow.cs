@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Add a death zone for the player
+/// before the camera begin to follow him
+/// </summary>
 public class CameraFollow : MonoBehaviour
 {
 
@@ -14,15 +18,15 @@ public class CameraFollow : MonoBehaviour
 	public Vector2 topRightLimit;
 	public Vector2 focusAreaSize;
 
-	FocusArea focusArea;
+	private FocusArea focusArea;
 
-	float currentLookAheadX;
-	float targetLookAheadX;
-	float lookAheadDirX;
-	float smoothLookVelocityX;
-	float smoothVelocityY;
+	private float currentLookAheadX;
+	private float targetLookAheadX;
+	private float lookAheadDirX;
+	private float smoothLookVelocityX;
+	private float smoothVelocityY;
 
-	bool lookAheadStopped;
+	private bool lookAheadStopped;
 
 	/// <summary>
 	/// Start this instance.
