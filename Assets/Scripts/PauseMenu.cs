@@ -68,7 +68,7 @@ public class PauseMenu : MenuController
 			PauseManager ();
 		}
 
-		if (!player.inputEnable) {
+		if (!player.inputEnable && !player.hasVictory) {
 			InputMap ();
 		}
 	}

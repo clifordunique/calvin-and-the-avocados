@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	// sounds
 	public AudioClip jumpAudio;
 	public AudioClip gameOverAudio;
+	public AudioClip victoryAudio;
 	private AudioSource sourceAudio;
 
 	// settings
@@ -48,7 +49,8 @@ public class Player : MonoBehaviour
 	private float velocityXSmoothing;
 	public Vector3 velocity;
 
-	private Controller2D controller;
+	[HideInInspector]
+	public Controller2D controller;
 
 	// input
 	private Vector2 directionalInput;
@@ -62,6 +64,8 @@ public class Player : MonoBehaviour
 	// animation
 	private Animator anim;
 	private bool isFacingLeft;
+	[HideInInspector]
+	public bool hasVictory;
 
 	/// <summary>
 	/// Start this instance.
@@ -81,6 +85,7 @@ public class Player : MonoBehaviour
 		runSpeed = SPEED * 2;
 	
 		isFacingLeft = false;
+		hasVictory = false;
 
 		// jump
 		maxJumpVelocity = Mathf.Abs (gravity) * timeToJumpApex;
@@ -96,10 +101,16 @@ public class Player : MonoBehaviour
 
 		CalculateVelocity ();
 
-		HandleWallSliding ();
+		if (!hasVictory && !controller.collisions.mortal) {
+			HandleWallSliding ();
+		}
 
-		if (!controller.collisions.mortal) {
+		if (!controller.collisions.mortal && !hasVictory) {
 			controller.Move (velocity * Time.deltaTime, directionalInput);
+		}
+
+		if (controller.collisions.collectable) {
+			HandleVictory ();
 		}
 
 		if (controller.collisions.above || controller.collisions.below) {
@@ -107,7 +118,7 @@ public class Player : MonoBehaviour
 			velocity.y = 0;
 		}
 
-		if ((velocity.x > 0 && isFacingLeft) || (velocity.x < 0 && !isFacingLeft)) {
+		if (!hasVictory && ((velocity.x > 0 && isFacingLeft) || (velocity.x < 0 && !isFacingLeft))) {
 			Flip ();
 		} 
 	}
@@ -118,9 +129,11 @@ public class Player : MonoBehaviour
 	/// <returns>The update.</returns>
 	private void FixedUpdate ()
 	{
-		anim.SetFloat ("speed", Mathf.Abs (velocity.x));
-		anim.SetFloat ("vspeed", velocity.y);
-		HandleDeathAndRespawn ();
+		if (!hasVictory) {
+			anim.SetFloat ("speed", Mathf.Abs (velocity.x));
+			anim.SetFloat ("vspeed", velocity.y);
+			HandleDeathAndRespawn ();
+		}
 	}
 
 
@@ -159,7 +172,7 @@ public class Player : MonoBehaviour
 	public void OnJumpInputDown ()
 	{
 
-		if (!anim.GetBool ("jumping") && !anim.GetBool ("death")) {
+		if (!anim.GetBool ("jumping") && !anim.GetBool ("death") && !hasVictory) {
 			sourceAudio.PlayOneShot (jumpAudio);
 			anim.SetBool ("jumping", true);
 		}
@@ -231,8 +244,7 @@ public class Player : MonoBehaviour
 		wallSliding = false;
 		if ((controller.collisions.left || controller.collisions.right) &&
 		    !controller.collisions.below
-		    && velocity.y < 0
-		    && !controller.collisions.mortal) {
+		    && velocity.y < 0) {
 
 			wallSliding = true;
 
@@ -274,6 +286,29 @@ public class Player : MonoBehaviour
 			Invoke ("Respawn", 1.25f);
 		}
 
+	}
+
+	/// <summary>
+	/// Handles the victory.
+	/// </summary>
+	/// <returns>The vicotry.</returns>
+	private void HandleVictory ()
+	{
+		if (!hasVictory) {
+			sourceAudio.Stop ();
+			sourceAudio.PlayOneShot (victoryAudio);
+		}
+
+		inputEnable = false;
+		hasVictory = true;
+		anim.SetBool ("jumping", false);
+		anim.SetBool ("running", false);
+		anim.SetBool ("sliding", false);
+		anim.SetFloat ("vspeed", 0f);
+		anim.SetFloat ("speed", 0f);
+		velocity.y = -1;
+		velocity.x = 0;
+		controller.Move (velocity * Time.deltaTime, Vector3.down);
 	}
 
 	/// <summary>

@@ -1,22 +1,15 @@
 ﻿using UnityEngine;
 
-// dependencies
-[RequireComponent (typeof(AudioSource))]
-
 /// <summary>
 /// Collectable controller.
 /// </summary>
-public class CollectableController : RaycastController
+public class CollectableController : MonoBehaviour
 {
 
-	// audio
-	public AudioClip finishAudio;
-	private AudioSource sourceAudio;
-    
 	// layer
 	public LayerMask playerMask;
 
-	// player
+	// controller
 	public Player player;
 
 	// loader
@@ -33,14 +26,10 @@ public class CollectableController : RaycastController
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
-	public override void Start ()
+	public void Start ()
 	{
-
-		base.Start ();
-
-		player = player.GetComponent<Player> ();
 		sprite = GetComponent<SpriteRenderer> ();
-		sourceAudio = GetComponent<AudioSource> ();
+		player = player.GetComponent<Player> ();
 
 	}
 
@@ -49,7 +38,6 @@ public class CollectableController : RaycastController
 	/// </summary>
 	private void FixedUpdate ()
 	{
-		UpdateRaycastOrigins ();
 		OnCollisionWithPlayer ();
 
 		if (collected && !isLoading) {
@@ -65,11 +53,8 @@ public class CollectableController : RaycastController
 	/// <returns>The level.</returns>
 	private void FinishLevel ()
 	{
-		sourceAudio.PlayOneShot (finishAudio);
+		Debug.Log ("-- finish level ---");
 		sprite.enabled = false;
-		player.inputEnable = false;
-		player.moveSpeed = 0;
-		player.runSpeed = 0;
 		isLoading = true;
 		Invoke ("LoadNewLevel", 3f);
 		
@@ -88,17 +73,8 @@ public class CollectableController : RaycastController
 	/// </summary>
 	private void OnCollisionWithPlayer ()
 	{
-
-		float rayLength = 1 + skinWidth;
-
-		for (int i = 0; i < verticalRayCount; i++) {
-			// witch direction are we moving ?
-			RaycastHit2D hit = Physics2D.Raycast (raycastOrigins.center, Vector2.up, rayLength, playerMask);
-
-			// got a collision with the player
-			if (hit) {
-				collected = true;
-			}
+		if (player.hasVictory) {
+			collected = true;
 		}
 	}
 
