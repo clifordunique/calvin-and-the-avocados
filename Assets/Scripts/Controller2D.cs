@@ -24,7 +24,7 @@ public class Controller2D : RaycastController
 	}
 
 	/// <summary>
-	/// Move the player or whatever
+	/// Move the player when he does stand on a platform this time
 	/// </summary>
 	/// <param name="moveAmount">Move amount.</param>
 	/// <param name="standingOnPlatform">Standing on platform.</param>
@@ -34,7 +34,7 @@ public class Controller2D : RaycastController
 	}
 
 	/// <summary>
-	/// Move the player when he does stand on a platform this time
+	/// Move the player or whatever
 	/// </summary>
 	/// <param name="moveAmount">Move amount.</param>
 	/// <param name="input">Input.</param>
@@ -95,6 +95,12 @@ public class Controller2D : RaycastController
 					continue;
 				}
 
+				// collectable
+				if (hit.collider.tag == "Collectable") {
+					collisions.collectable = true;
+					continue;
+				}
+
 				// collisions
 				moveAmount.x = (hit.distance - skinWidth) * directionX;
 				rayLength = hit.distance;
@@ -146,6 +152,12 @@ public class Controller2D : RaycastController
 					continue;
 				}
 
+				// collectable
+				if (hit.collider.tag == "Collectable") {
+					collisions.collectable = true;
+					continue;
+				}
+
 				moveAmount.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
 
@@ -176,6 +188,7 @@ public class Controller2D : RaycastController
 		public int faceDir;
 		public bool fallingThroughPlatform;
 		public bool mortal;
+		public bool collectable;
 
 		/// <summary>
 		/// Reset this instance.
@@ -185,6 +198,8 @@ public class Controller2D : RaycastController
 			above = below = false;
 			left = right = false;
 			mortal = false;
+			fallingThroughPlatform = false;
+			collectable = false;
 		}
 	}
 

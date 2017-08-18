@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Through
   - Mortal
+  - Collectable
   layers:
   - Default
   - TransparentFX
