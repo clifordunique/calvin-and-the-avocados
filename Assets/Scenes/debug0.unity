@@ -4333,6 +4333,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   inputEnable: 0
+  hasVictory: 0
 --- !u!114 &2004744804
 MonoBehaviour:
   m_ObjectHideFlags: 0
