@@ -17,9 +17,6 @@ public class PlatformController : RaycastController
 	public bool cyclic;
 	public float waitTime;
 
-	[Range (0, 2)]
-	public float easeAmount;
-
 	private int fromWaypointIndex;
 	private float percentBetweenWaypoints;
 	// pourcentage between 0 and 1
@@ -34,6 +31,7 @@ public class PlatformController : RaycastController
 	public override void Start ()
 	{
 		base.Start ();
+        nextMoveTime = Time.time + waitTime;
 
 		globalWaypoints = new Vector3[localWaypoints.Length];
 		for (int i = 0; i < localWaypoints.Length; i++) {
@@ -58,17 +56,6 @@ public class PlatformController : RaycastController
 	}
 
 	/// <summary>
-	/// Easing
-	/// </summary>
-	/// <param name="x"></param>
-	/// <returns>Easing value</returns>
-	float Ease (float x)
-	{
-		float a = easeAmount + 1;
-		return Mathf.Pow (x, a) / Mathf.Pow (1 - x, a);
-	}
-
-	/// <summary>
 	/// Calculate platform movement
 	/// </summary>
 	/// <returns>New Position</returns>
@@ -84,9 +71,8 @@ public class PlatformController : RaycastController
 		float distanceBetweenWaypoints = Vector3.Distance (globalWaypoints [fromWaypointIndex], globalWaypoints [toWaypointIndex]);
 		percentBetweenWaypoints += Time.deltaTime * speed / distanceBetweenWaypoints;
 		percentBetweenWaypoints = Mathf.Clamp01 (percentBetweenWaypoints);
-		float easedPercentBetweenWaypoints = Ease (percentBetweenWaypoints);
 
-		Vector3 newPos = Vector3.Lerp (globalWaypoints [fromWaypointIndex], globalWaypoints [toWaypointIndex], easedPercentBetweenWaypoints);
+		Vector3 newPos = Vector3.Lerp (globalWaypoints [fromWaypointIndex], globalWaypoints [toWaypointIndex], percentBetweenWaypoints);
 
 		// reach next waypoint
 		if (percentBetweenWaypoints >= 1) {
