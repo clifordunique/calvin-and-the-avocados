@@ -461,7 +461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -216.5}
+  m_AnchoredPosition: {x: 0, y: -250}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626011562
@@ -1451,8 +1451,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 348.05, y: -224.4}
-  m_SizeDelta: {x: 269.9, y: 84.2}
+  m_AnchoredPosition: {x: 343.05, y: -270.12}
+  m_SizeDelta: {x: 269.9, y: 59.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441983448
 MonoBehaviour:
@@ -1486,7 +1486,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "For \nMargot Henry \nBy \nLuc-Frederic Langis"
+  m_Text: "\nBy \nLuc-Frederic Langis"
 --- !u!222 &1441983449
 CanvasRenderer:
   m_ObjectHideFlags: 0
