@@ -12,9 +12,6 @@ using System.Collections.Generic;
 public class Menu : MenuController
 {
 
-	// audio
-	public AudioClip selectAudio;
-
 	public string scene;
 	public Button start;
 	public Button quit;
