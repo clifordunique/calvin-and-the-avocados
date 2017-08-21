@@ -982,7 +982,7 @@ MonoBehaviour:
   maxY: 30
   maxScale: 10
   minScale: 15
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &534590615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   maxY: 30
   maxScale: 10
   minScale: 15
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &706745601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   maxY: 20
   maxScale: 15
   minScale: 20
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &744683407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   maxY: 13
   maxScale: 10
   minScale: 15
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &756429929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ MonoBehaviour:
   maxY: 30
   maxScale: 10
   minScale: 15
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &931100891
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2085,7 +2085,7 @@ MonoBehaviour:
   maxY: 20
   maxScale: 20
   minScale: 30
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &940946996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2216,7 +2216,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: bowie
+  level: caribou
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   maxY: 13
   maxScale: 10
   minScale: 13
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &1008390353
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3037,7 +3037,7 @@ MonoBehaviour:
   maxY: 13
   maxScale: 10
   minScale: 13
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &1244528979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3384,7 +3384,7 @@ MonoBehaviour:
   maxY: 35
   maxScale: 15
   minScale: 20
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &1492708042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3572,7 +3572,7 @@ MonoBehaviour:
   maxY: 35
   maxScale: 15
   minScale: 20
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &1532877899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3774,7 +3774,7 @@ MonoBehaviour:
   maxY: 20
   maxScale: 15
   minScale: 20
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &1577126349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3865,7 +3865,7 @@ MonoBehaviour:
   maxY: 35
   maxScale: 15
   minScale: 20
-  onFirstLayer: 0
+  onFirstLayer: 1
 --- !u!212 &1580549092
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1531,6 +1531,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &706745601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1818,6 +1819,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 5
   minScale: 10
+  onFirstLayer: 0
 --- !u!212 &756429929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2148,7 +2150,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &870908372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2264,6 +2265,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 20
   minScale: 40
+  onFirstLayer: 0
 --- !u!212 &940946996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2394,7 +2396,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: bowie
+  level: quidditch
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
@@ -2675,7 +2677,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1044785823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2800,7 +2801,6 @@ MonoBehaviour:
   speed: 2
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1045178531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4163,7 +4163,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1456695558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4473,6 +4472,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &1532877899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5017,7 +5017,6 @@ MonoBehaviour:
   speed: 2
   cyclic: 0
   waitTime: 0.5
-  easeAmount: 0
 --- !u!1 &1654012172
 GameObject:
   m_ObjectHideFlags: 0
@@ -5747,7 +5746,6 @@ MonoBehaviour:
   speed: 2
   cyclic: 0
   waitTime: 0.5
-  easeAmount: 0
 --- !u!61 &1947318069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6513,7 +6511,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &2075017648
 BoxCollider2D:
   m_ObjectHideFlags: 0

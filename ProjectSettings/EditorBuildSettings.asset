@@ -14,3 +14,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/bowie.unity
     guid: 2100fd361b16b2942ad8d9199096d4aa
+  - enabled: 1
+    path: Assets/Scenes/camera.unity
+    guid: 3e40c02f45a1fc94fb2ecc95a7be28e2
+  - enabled: 1
+    path: Assets/Scenes/caribou.unity
+    guid: 1af6e9713c0fb5648ae5daf77dafbfd9
+  - enabled: 1
+    path: Assets/Scenes/cat.unity
+    guid: 58b311df99ae2fc40810b66f56452659
+  - enabled: 1
+    path: Assets/Scenes/giguere.unity
+    guid: faef21f40b7cb1e4ca66c230043020bf
+  - enabled: 1
+    path: Assets/Scenes/quidditch.unity
+    guid: 384704d7e73071e448abb71c50b9a0df
+  - enabled: 1
+    path: Assets/Scenes/streetart.unity
+    guid: ad18ab672263d2947808df9f054134a0
+  - enabled: 1
+    path: Assets/Scenes/tennis.unity
+    guid: 4a166eaa104887e43bb45d1890188716

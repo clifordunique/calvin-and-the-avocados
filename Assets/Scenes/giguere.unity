@@ -453,7 +453,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &167562455
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -669,7 +668,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 216271809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: 13, z: 0}
+  m_LocalPosition: {x: 15.014, y: 13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573827836}
@@ -1123,6 +1122,7 @@ MonoBehaviour:
   maxY: 7
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &384056522
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2388,6 +2388,7 @@ MonoBehaviour:
   maxY: 7
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &759714293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2783,7 +2784,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: bowie
+  level: cat
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
@@ -3719,7 +3720,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1383398724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4419,7 +4419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1551973063}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.53, y: 10.99, z: 0}
+  m_LocalPosition: {x: 31.53, y: 10.9645, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573827836}
@@ -4442,7 +4442,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 4.956315}
+    newSize: {x: 1, y: 5.0074267}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -4487,7 +4487,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1, y: 4.956315}
+  m_Size: {x: 1, y: 5.0074267}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5363,7 +5363,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1925762774
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6129,7 +6128,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &2037078381
 BoxCollider2D:
   m_ObjectHideFlags: 0

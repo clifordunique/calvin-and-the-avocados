@@ -1309,13 +1309,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7036a7120e2e7dd49b2256db9ec3f041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BufferLimitX: 30
-  minSpeed: 15
-  maxSpeed: 20
+  BufferLimitX: 90
+  minSpeed: 4
+  maxSpeed: 12
   minY: 0
   maxY: 10
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &706745601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1399,13 +1400,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7036a7120e2e7dd49b2256db9ec3f041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BufferLimitX: 30
+  BufferLimitX: 90
   minSpeed: 2
   maxSpeed: 5
   minY: 0
   maxY: 10
   maxScale: 5
   minScale: 10
+  onFirstLayer: 0
 --- !u!212 &756429929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1608,7 +1610,7 @@ Transform:
   m_GameObject: {fileID: 862308379}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 62.469997, y: -2.02, z: 0}
-  m_LocalScale: {x: 1.9426199, y: 1.9426199, z: 1.9426199}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.9426199}
   m_Children: []
   m_Father: {fileID: 394139736}
   m_RootOrder: 5
@@ -1793,13 +1795,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7036a7120e2e7dd49b2256db9ec3f041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BufferLimitX: 30
+  BufferLimitX: 90
   minSpeed: 8
   maxSpeed: 10
   minY: 5
   maxY: 10
   maxScale: 20
   minScale: 40
+  onFirstLayer: 0
 --- !u!212 &940946996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1930,7 +1933,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: bowie
+  level: streetart
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
@@ -3074,13 +3077,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7036a7120e2e7dd49b2256db9ec3f041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BufferLimitX: 30
+  BufferLimitX: 90
   minSpeed: 2
   maxSpeed: 5
   minY: 0
   maxY: 10
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &1532877899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4189,7 +4193,7 @@ Transform:
   m_GameObject: {fileID: 2110115096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 54.359997, y: -2.02, z: 0}
-  m_LocalScale: {x: 1.9426199, y: 1.9426199, z: 1.9426199}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.9426199}
   m_Children: []
   m_Father: {fileID: 394139736}
   m_RootOrder: 2

@@ -165,7 +165,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &8354056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -797,6 +796,7 @@ MonoBehaviour:
   maxY: 25
   maxScale: 20
   minScale: 40
+  onFirstLayer: 0
 --- !u!212 &308020217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1421,6 +1421,7 @@ MonoBehaviour:
   maxY: 35
   maxScale: 2
   minScale: 5
+  onFirstLayer: 0
 --- !u!212 &494507741
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1679,6 +1680,7 @@ MonoBehaviour:
   maxY: 35
   maxScale: 2
   minScale: 5
+  onFirstLayer: 0
 --- !u!212 &542293881
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1917,6 +1919,7 @@ MonoBehaviour:
   maxY: 40
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &706745601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2007,6 +2010,7 @@ MonoBehaviour:
   maxY: 35
   maxScale: 2
   minScale: 5
+  onFirstLayer: 0
 --- !u!212 &756429929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2220,7 +2224,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 1}
+  m_Size: {x: 4.5, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &884331104
 SpriteRenderer:
@@ -2334,7 +2338,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &896106934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2450,6 +2453,7 @@ MonoBehaviour:
   maxY: 25
   maxScale: 20
   minScale: 40
+  onFirstLayer: 0
 --- !u!212 &940946996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2580,7 +2584,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: bowie
+  level: tennis
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
@@ -2764,7 +2768,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1044785823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3047,7 +3050,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1151037576
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3661,6 +3663,7 @@ MonoBehaviour:
   maxY: 45
   maxScale: 14
   minScale: 25
+  onFirstLayer: 0
 --- !u!212 &1532877899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4108,7 +4111,6 @@ MonoBehaviour:
   speed: 3
   cyclic: 0
   waitTime: 0
-  easeAmount: 0.5
 --- !u!1 &1654012172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4365,6 +4367,7 @@ MonoBehaviour:
   maxY: 25
   maxScale: 20
   minScale: 40
+  onFirstLayer: 0
 --- !u!212 &1672579787
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4455,6 +4458,7 @@ MonoBehaviour:
   maxY: 35
   maxScale: 2
   minScale: 5
+  onFirstLayer: 0
 --- !u!212 &1715603646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4748,7 +4752,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &1772952462
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5588,7 +5591,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &2037078381
 BoxCollider2D:
   m_ObjectHideFlags: 0
