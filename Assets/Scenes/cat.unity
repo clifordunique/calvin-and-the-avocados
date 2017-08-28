@@ -1112,6 +1112,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &706745601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1202,6 +1203,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 5
   minScale: 10
+  onFirstLayer: 0
 --- !u!212 &756429929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1335,7 +1337,6 @@ MonoBehaviour:
   speed: 1
   cyclic: 0
   waitTime: 1
-  easeAmount: 0
 --- !u!61 &756852156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1678,6 +1679,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 20
   minScale: 40
+  onFirstLayer: 0
 --- !u!212 &940946996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2466,7 +2468,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1388213402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.09, y: 0, z: 0}
+  m_LocalPosition: {x: -1.09, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2636,6 +2638,7 @@ MonoBehaviour:
   maxY: 10
   maxScale: 10
   minScale: 20
+  onFirstLayer: 0
 --- !u!212 &1532877899
 SpriteRenderer:
   m_ObjectHideFlags: 0
