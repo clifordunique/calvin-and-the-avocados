@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b76b9f58ceffd4c23af70879e8488176
-timeCreated: 1504429150
+timeCreated: 1504430047
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -21,6 +21,7 @@ TextureImporter:
     21300028: collectables_14
     21300030: collectables_15
     21300032: collectables_16
+    21300034: collectables_17
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -363,6 +364,20 @@ TextureImporter:
         y: 0
         width: 11
         height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: collectables_17
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 13
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
