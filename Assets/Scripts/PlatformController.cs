@@ -13,6 +13,8 @@ public class PlatformController : RaycastController
 	public Vector3[] localWaypoints;
 	private Vector3[] globalWaypoints;
 
+	public bool waitForPlayer;
+
 	public float speed;
 	public bool cyclic;
 	public float waitTime;
@@ -31,7 +33,7 @@ public class PlatformController : RaycastController
 	public override void Start ()
 	{
 		base.Start ();
-        nextMoveTime = Time.time + waitTime;
+		nextMoveTime = Time.time + waitTime;
 
 		globalWaypoints = new Vector3[localWaypoints.Length];
 		for (int i = 0; i < localWaypoints.Length; i++) {

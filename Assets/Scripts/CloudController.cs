@@ -13,7 +13,7 @@ public class CloudController : MonoBehaviour
 	public float maxY;
 	public float maxScale;
 	public float minScale;
-    public bool onFirstLayer;
+	public bool onFirstLayer;
 
 	private float speed;
 	private float scale;
@@ -71,12 +71,11 @@ public class CloudController : MonoBehaviour
 		transform.localScale = new Vector3 (scale, scale, 1);
 
 		// change sort ording if scale is to big
-        if (!onFirstLayer)
-        {
-            sprite.sortingOrder = (scale <= 10) ? -2 : -1;
-        } else {
-            sprite.sortingOrder = 1;
-        }
+		if (!onFirstLayer) {
+			sprite.sortingOrder = (scale <= 10) ? -4 : -3;
+		} else {
+			sprite.sortingOrder = 1;
+		}
 
 		// set cloud position
 		float spawnX = -((Camera.main.orthographicSize * Camera.main.aspect) - Camera.main.gameObject.transform.position.x);
