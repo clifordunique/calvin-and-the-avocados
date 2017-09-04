@@ -4083,7 +4083,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 3, z: 0}
   - {x: 3, y: 3, z: 0}
-  waitForPlayer: 0
+  waitForPlayer: 1
   canMove: 0
   speed: 1
   cyclic: 0
