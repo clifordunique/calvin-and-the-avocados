@@ -90,6 +90,7 @@ public class Controller2D : RaycastController
 
 			if (hit && hit.distance != 0) {
 
+				// mortal
 				if (hit.collider.tag == "Mortal") {
 					collisions.mortal = true;
 					continue;
@@ -156,6 +157,11 @@ public class Controller2D : RaycastController
 				if (hit.collider.tag == "Collectable") {
 					collisions.collectable = true;
 					continue;
+				}
+
+				// platform
+				if (hit.collider.tag == "Platform" && collisions.below) {
+					hit.collider.gameObject.GetComponent<PlatformController> ().canMove = true;
 				}
 
 				moveAmount.y = (hit.distance - skinWidth) * directionY;

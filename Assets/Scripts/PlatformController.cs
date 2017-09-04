@@ -13,7 +13,10 @@ public class PlatformController : RaycastController
 	public Vector3[] localWaypoints;
 	private Vector3[] globalWaypoints;
 
-	public bool waitForPlayer;
+	public bool waitForPlayer = false;
+
+	[HideInInspector]
+	public bool canMove;
 
 	public float speed;
 	public bool cyclic;
@@ -27,6 +30,7 @@ public class PlatformController : RaycastController
 	private List<PassengerMovement> passengerMovement;
 	private Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D> ();
 
+
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
@@ -34,6 +38,8 @@ public class PlatformController : RaycastController
 	{
 		base.Start ();
 		nextMoveTime = Time.time + waitTime;
+
+		canMove = !waitForPlayer;
 
 		globalWaypoints = new Vector3[localWaypoints.Length];
 		for (int i = 0; i < localWaypoints.Length; i++) {
@@ -47,14 +53,18 @@ public class PlatformController : RaycastController
 	/// </summary>
 	void Update ()
 	{
+
 		UpdateRaycastOrigins ();
-		Vector3 velocity = CalculatePlatformMovement ();
 
-		CalculatePassengerMovement (velocity);
+		if (canMove) {
+			Vector3 velocity = CalculatePlatformMovement ();
 
-		MovePassengers (true);
-		transform.Translate (velocity);
-		MovePassengers (false);
+			CalculatePassengerMovement (velocity);
+
+			MovePassengers (true);
+			transform.Translate (velocity);
+			MovePassengers (false);
+		}
 	}
 
 	/// <summary>
