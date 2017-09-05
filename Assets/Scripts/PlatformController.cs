@@ -14,6 +14,7 @@ public class PlatformController : RaycastController
 	private Vector3[] globalWaypoints;
 
 	public bool waitForPlayer = false;
+	public bool delay = false;
 
 	[HideInInspector]
 	public bool canMove;
@@ -39,6 +40,10 @@ public class PlatformController : RaycastController
 		base.Start ();
 
 		canMove = !waitForPlayer;
+
+		if (delay) {
+			nextMoveTime = Time.time + waitTime;
+		}
 
 		globalWaypoints = new Vector3[localWaypoints.Length];
 		for (int i = 0; i < localWaypoints.Length; i++) {

@@ -470,6 +470,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -890,6 +891,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -2303,6 +2305,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -2908,6 +2911,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 3
   cyclic: 0
@@ -3038,6 +3042,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -3742,6 +3747,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -3917,6 +3923,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 3
   cyclic: 0
@@ -4776,6 +4783,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 3
   cyclic: 0
@@ -5191,6 +5199,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -6269,6 +6278,7 @@ MonoBehaviour:
   - {x: 15, y: -65, z: 0}
   - {x: 15, y: -100, z: 0}
   waitForPlayer: 0
+  delay: 1
   canMove: 0
   speed: 5
   cyclic: 1
@@ -8091,6 +8101,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 3
   cyclic: 0
