@@ -1285,6 +1285,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 20, y: 0, z: 0}
   waitForPlayer: 1
+  delay: 0
   canMove: 0
   speed: 4
   cyclic: 0
@@ -2005,6 +2006,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -2823,6 +2825,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 5, z: 0}
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 3
   cyclic: 0
@@ -3024,6 +3027,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -5057,7 +5061,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947674547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.03, y: 35.06, z: 0}
+  m_LocalPosition: {x: 26.004, y: 35.06, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6128,7 +6132,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1095783161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.47, y: 23.04, z: 0}
+  m_LocalPosition: {x: 49.502, y: 23.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573827836}
@@ -6441,6 +6445,7 @@ MonoBehaviour:
     m_Bits: 256
   localWaypoints: []
   waitForPlayer: 0
+  delay: 0
   canMove: 0
   speed: 1
   cyclic: 0
@@ -8107,7 +8112,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1621587469}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.104, y: 9.93, z: 0}
+  m_LocalPosition: {x: 44.115, y: 9.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573827836}
@@ -8308,6 +8313,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: -23, y: 0, z: 0}
   waitForPlayer: 1
+  delay: 0
   canMove: 0
   speed: 4
   cyclic: 0
