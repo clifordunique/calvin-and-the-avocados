@@ -469,6 +469,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -887,6 +889,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -2298,6 +2302,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -2901,6 +2907,8 @@ MonoBehaviour:
   localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
+  waitForPlayer: 0
+  canMove: 0
   speed: 3
   cyclic: 0
   waitTime: 0
@@ -3029,6 +3037,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -3389,7 +3399,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: bowie
+  level: cocktail
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
@@ -3731,6 +3741,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -3904,6 +3916,8 @@ MonoBehaviour:
   localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
+  waitForPlayer: 0
+  canMove: 0
   speed: 3
   cyclic: 0
   waitTime: 0
@@ -4761,6 +4775,8 @@ MonoBehaviour:
   localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
+  waitForPlayer: 0
+  canMove: 0
   speed: 3
   cyclic: 0
   waitTime: 0
@@ -5174,6 +5190,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -6250,6 +6268,8 @@ MonoBehaviour:
   - {x: 0, y: -30, z: 0}
   - {x: 15, y: -65, z: 0}
   - {x: 15, y: -100, z: 0}
+  waitForPlayer: 0
+  canMove: 0
   speed: 5
   cyclic: 1
   waitTime: 2
@@ -8070,6 +8090,8 @@ MonoBehaviour:
   localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: -12, y: 0, z: 0}
+  waitForPlayer: 0
+  canMove: 0
   speed: 3
   cyclic: 0
   waitTime: 0

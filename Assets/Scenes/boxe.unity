@@ -1753,6 +1753,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -3551,7 +3553,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: bowie
+  level: caribou
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
@@ -3866,6 +3868,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1
@@ -4950,6 +4954,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   localWaypoints: []
+  waitForPlayer: 0
+  canMove: 0
   speed: 1
   cyclic: 0
   waitTime: 1

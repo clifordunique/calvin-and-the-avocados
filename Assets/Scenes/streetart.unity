@@ -2154,7 +2154,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 2004744803}
-  level: caribou
+  level: piano
   levelLoader: {fileID: 1177132245}
 --- !u!61 &947674551
 BoxCollider2D:
