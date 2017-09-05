@@ -37,7 +37,6 @@ public class PlatformController : RaycastController
 	public override void Start ()
 	{
 		base.Start ();
-		nextMoveTime = Time.time + waitTime;
 
 		canMove = !waitForPlayer;
 
