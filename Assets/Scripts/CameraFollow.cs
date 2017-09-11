@@ -34,6 +34,7 @@ public class CameraFollow : MonoBehaviour
 	void Start ()
 	{
 		focusArea = new FocusArea (target.collider.bounds, focusAreaSize);
+		Camera.main.backgroundColor = new Color (0.792156862745F, 0.862745098039F, 0.623529411765F); // #CADC9f
 	}
 
 	/// <summary>

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7850b12c131ce49a78806d66ae708686
-timeCreated: 1501681014
+timeCreated: 1504786616
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,10 @@ TextureImporter:
     21300036: calvin_death1
     21300038: calvin_death2
     21300040: calvin_death3
+    21300042: calvin_run2
+    21300044: calvin_victory0
+    21300046: calvin_victory1
+  externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -78,6 +82,7 @@ TextureImporter:
   platformSettings:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -86,6 +91,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -94,6 +100,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: iPhone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -102,6 +109,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: Android
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -110,6 +118,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: Tizen
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -118,6 +127,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: WebGL
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -126,6 +136,7 @@ TextureImporter:
     overridden: 0
   - buildTarget: Samsung TV
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -141,7 +152,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1
         y: 1
-        width: 14
+        width: 15
         height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -155,7 +166,7 @@ TextureImporter:
         serializedVersion: 2
         x: 17
         y: 1
-        width: 14
+        width: 15
         height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -168,9 +179,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 33
-        y: 1
+        y: 0
         width: 14
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,9 +193,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 49
-        y: 1
+        y: 0
         width: 14
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,9 +220,9 @@ TextureImporter:
       name: calvin_jump0
       rect:
         serializedVersion: 2
-        x: 81
+        x: 97
         y: 1
-        width: 14
+        width: 15
         height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -223,9 +234,9 @@ TextureImporter:
       name: calvin_jump1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 113
         y: 1
-        width: 14
+        width: 15
         height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -237,10 +248,10 @@ TextureImporter:
       name: calvin_slide0
       rect:
         serializedVersion: 2
-        x: 114
-        y: 2
-        width: 13
-        height: 13
+        x: 129
+        y: 1
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +260,6 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: calvin_death0
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 3
-        width: 14
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: calvin_death1
       rect:
         serializedVersion: 2
         x: 145
@@ -276,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: calvin_death2
+      name: calvin_death1
       rect:
         serializedVersion: 2
         x: 161
@@ -290,13 +287,69 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
+      name: calvin_death2
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 3
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
       name: calvin_death3
       rect:
         serializedVersion: 2
-        x: 179
+        x: 195
         y: 8
         width: 10
         height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: calvin_run2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: calvin_victory0
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: calvin_victory1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1
+        width: 15
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
