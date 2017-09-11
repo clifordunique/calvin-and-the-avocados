@@ -2,6 +2,9 @@
 using UnityEngine.SceneManagement;
 
 // dependencies
+using UnityEngine.UI;
+
+
 [RequireComponent (typeof(Controller2D))]
 [RequireComponent (typeof(AudioSource))]
 
@@ -135,7 +138,6 @@ public class Player : MonoBehaviour
 			HandleDeathAndRespawn ();
 		}
 	}
-
 
 	/// <summary>
 	/// Sets the directional input.
