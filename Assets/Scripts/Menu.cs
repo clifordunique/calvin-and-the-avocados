@@ -1,7 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 // dependencies
 [RequireComponent (typeof(AudioSource))]
@@ -12,7 +11,6 @@ using System.Collections.Generic;
 public class Menu : MenuController
 {
 
-	public string scene;
 	public Button start;
 	public Button quit;
 
@@ -24,6 +22,7 @@ public class Menu : MenuController
 
 		// restart button
 		start = start.GetComponent<Button> ();
+		start.onClick.AddListener (StartManager);
 		buttons.Add (start);
 
 		// quit button
@@ -36,6 +35,17 @@ public class Menu : MenuController
 	void Update ()
 	{
 		InputMap ();
+	}
+
+	/// <summary>
+	/// Starts the manager.
+	/// </summary>
+	/// <returns>The manager.</returns>
+	static void StartManager ()
+	{
+
+		SceneManager.LoadSceneAsync ("playerInfo");
+		
 	}
 
 	/// <summary>
