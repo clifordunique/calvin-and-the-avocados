@@ -23,6 +23,7 @@ public class Menu : MenuController
 		// restart button
 		start = start.GetComponent<Button> ();
 		start.onClick.AddListener (StartManager);
+		start.Select ();
 		buttons.Add (start);
 
 		// quit button

@@ -44,9 +44,9 @@ public static class SaveLoadController
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (FOLDER + "/" + scene + SAVE_EXT, FileMode.Open);
 			SaveLoadController.savedGames = (GameSerialization)bf.Deserialize (file);
-			Debug.Log (SaveLoadController.savedGames.name);
-			Debug.Log (SaveLoadController.savedGames.score);
 			file.Close ();
+		} else {
+			SaveLoadController.savedGames = new GameSerialization ();
 		}
 	}
 }

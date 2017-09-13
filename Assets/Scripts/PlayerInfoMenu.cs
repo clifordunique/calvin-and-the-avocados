@@ -23,6 +23,7 @@ public class PlayerInfoMenu  : MenuController
 		// continue button
 		continueBtn = continueBtn.GetComponent<Button> ();
 		continueBtn.onClick.AddListener (ContinueManager);
+		continueBtn.Select ();
 		buttons.Add (continueBtn);
 
 	}
@@ -40,8 +41,7 @@ public class PlayerInfoMenu  : MenuController
 	private void ContinueManager ()
 	{
 		if (playerName.text.Length > 0) {
-			Session.Instance.playerName = playerName.text;
-			Debug.Log (Session.Instance.playerName);
+			Session.playerName = playerName.text;
 			SceneManager.LoadSceneAsync ("worldmap");
 		} else {
 			warning.text = "name should not be empty";

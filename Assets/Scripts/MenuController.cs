@@ -45,7 +45,6 @@ public class MenuController : MonoBehaviour
 
 		if (Input.GetAxisRaw ("Vertical") == 1 && checkAxes) {
 			sourceAudio.PlayOneShot (selectAudio);
-			Debug.Log ("input up " + current);
 			current = (current <= 0) ? 0 : --current;
 			buttons [current].Select ();
 			checkAxes = false;
@@ -53,11 +52,9 @@ public class MenuController : MonoBehaviour
 
 		if (Input.GetAxisRaw ("Vertical") == -1 && checkAxes) {
 			sourceAudio.PlayOneShot (selectAudio);
-			Debug.Log ("input down before " + current);
 			int count = buttons.Count - 1;
 			current = (current == count) ? count : ++current;
 			buttons [current].Select ();
-			Debug.Log ("input down after " + current);
 			checkAxes = false;
 		}
 

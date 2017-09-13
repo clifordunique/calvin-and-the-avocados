@@ -2,27 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Session : MonoBehaviour
+public static class Session
 {
-	public static Session Instance;
+	public static string playerName = "";
+	public static string lastPlayedScene = "bowie";
 
-	public string playerName;
+	public static bool isSpeedrunMode = false;
 
 	// @TODO: for speedrun mode
-	public string globalTime;
-
-	/// <summary>
-	/// Awake this instance. Create singleton.
-	/// </summary>
-	public void Awake ()
-	{
-		if (Instance == null) {
-			Instance = this;
-		}
-
-		if (Instance != this) {
-			Destroy (gameObject);
-		}
-	}
+	public static float globalTime = 0;
 
 }

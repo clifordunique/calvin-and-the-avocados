@@ -28,37 +28,35 @@ public class GameSerialization
 	{
 
 		// are we in the top 10 high score
-		if (score.Count > 0) {
 
-			// max to min
-			score.Sort ();
+		score.Sort ();
 
-			int index = -1;
-			int i = 0;
+		int index = -1;
+		int i = 0;
 
-			// get new high score position
-			while (i < score.Count && index == -1) {
-				if (_score < score [i]) {
-					index = i;
-					Debug.Log (i);
-					Debug.Log (index);
-				}
-
-				i++;
+		// get new high score position
+		while (i < score.Count && index == -1) {
+			if (_score < score [i]) {
+				index = i;
+				Debug.Log (i);
+				Debug.Log (index);
 			}
 
-			// if we had too much high score
-			if (score.Count >= 10) {
-				score = score.GetRange (0, 10);
-			}
-
-			// add score
-			score.Insert (index, _score);
-			name.Insert (index, _name);
-		} else {
-			score.Add (_score);
-			name.Add (_name);
+			i++;
 		}
+
+		if (index == -1) {
+			index = score.Count;
+		}
+
+		// add score
+		score.Insert (index, _score);
+		name.Insert (index, _name);
+
+		// if we had too much high score
+		if (score.Count >= 20) {
+			score = score.GetRange (0, 20);
+		} 
 
 	}
 

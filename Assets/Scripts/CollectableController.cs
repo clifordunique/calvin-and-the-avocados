@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Collectable controller.
@@ -65,7 +66,13 @@ public class CollectableController : MonoBehaviour
 	/// </summary>
 	private void LoadNewLevel ()
 	{
-		levelLoader.GetComponent<LevelLoader> ().LoadLevel (level);
+
+		if (Session.isSpeedrunMode) {
+			levelLoader.GetComponent<LevelLoader> ().LoadLevel (level);
+		} else {
+			Session.lastPlayedScene = SceneManager.GetActiveScene ().name;
+			SceneManager.LoadSceneAsync ("worldmap");
+		}
 	}
 
 	/// <summary>
