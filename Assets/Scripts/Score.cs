@@ -103,7 +103,7 @@ public class Score : MonoBehaviour
 	/// </summary>
 	/// <returns>The score.</returns>
 	/// <param name="value">Value.</param>
-	private string FormatScore (float value)
+	private static string FormatScore (float value)
 	{
 		return string.Format ("{00:N2}", value);
 	}
