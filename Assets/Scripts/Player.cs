@@ -285,6 +285,7 @@ public class Player : MonoBehaviour
 			sourceAudio.Stop ();
 			sourceAudio.PlayOneShot (gameOverAudio);
 			anim.SetBool ("death", true);
+			inputEnable = false;
 			Invoke ("Respawn", 1.25f);
 		}
 
@@ -297,20 +298,21 @@ public class Player : MonoBehaviour
 	private void HandleVictory ()
 	{
 		if (!hasVictory) {
+			Debug.Log ("has victory");
 			sourceAudio.Stop ();
 			sourceAudio.PlayOneShot (victoryAudio);
+			hasVictory = true;
+			inputEnable = false;
+			anim.SetBool ("jumping", false);
+			anim.SetBool ("running", false);
+			anim.SetBool ("sliding", false);
+			anim.SetFloat ("vspeed", 0f);
+			anim.SetFloat ("speed", 0f);
+			anim.SetTrigger ("victory");
+			velocity.y = -1;
+			velocity.x = 0;
 		}
 
-		inputEnable = false;
-		hasVictory = true;
-		anim.SetBool ("jumping", false);
-		anim.SetBool ("running", false);
-		anim.SetBool ("sliding", false);
-		anim.SetFloat ("vspeed", 0f);
-		anim.SetFloat ("speed", 0f);
-		velocity.y = -1;
-		velocity.x = 0;
-		controller.Move (velocity * Time.deltaTime, Vector3.down);
 	}
 
 	/// <summary>
