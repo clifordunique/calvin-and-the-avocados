@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7850b12c131ce49a78806d66ae708686
-timeCreated: 1504786616
+timeCreated: 1505729087
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -28,6 +28,10 @@ TextureImporter:
     21300042: calvin_run2
     21300044: calvin_victory0
     21300046: calvin_victory1
+    21300048: calvin_victory2
+    21300050: calvin_victory3
+    21300052: calvin_victory4
+    21300054: calvin_victory5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -352,6 +356,62 @@ TextureImporter:
         height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: calvin_victory2
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 4
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: calvin_victory3
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 4
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: calvin_victory4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 8
+        width: 10
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: calvin_victory5
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 8
+        width: 13
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
