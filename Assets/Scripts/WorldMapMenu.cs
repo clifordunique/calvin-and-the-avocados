@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class WorldMapMenu : MenuController
 {
 
-	public Button quit;
 	public GameObject worlds;
 	public Image view;
 
