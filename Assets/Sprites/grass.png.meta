@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: e93992a4010d849939355d41a5efacd0
-timeCreated: 1505805366
+guid: 06f97d8b8c4634f4e8f4a754aea19297
+timeCreated: 1505747309
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: rock_0
-    21300002: rock_1
-    21300004: rock_2
-    21300006: rock_3
-    21300008: rock_4
-    21300010: rock_5
+    21300000: grass_0
+    21300002: grass_1
+    21300004: grass_2
+    21300006: grass_3
+    21300008: grass_4
+    21300010: grass_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,9 +40,9 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -1
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -129,16 +129,16 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rock_0
+      name: grass_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
-        height: 48
+        height: 32
       alignment: 1
       pivot: {x: 0, y: 1}
-      border: {x: 16, y: 17, z: 16, w: 16}
+      border: {x: 14, y: 15, z: 15, w: 7}
       outline: []
       physicsShape: []
       tessellationDetail: 0
