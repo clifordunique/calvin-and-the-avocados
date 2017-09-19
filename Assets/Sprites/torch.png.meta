@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 518781853801c4c46851a4a50ca78840
-timeCreated: 1505809807
+timeCreated: 1505820976
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -130,10 +130,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 18
+        width: 62
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: torch_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 62
         y: 0
-        width: 16
-        height: 18
+        width: 66
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
