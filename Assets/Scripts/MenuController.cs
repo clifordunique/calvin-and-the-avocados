@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Menu controller.
@@ -13,54 +11,49 @@ public class MenuController : MonoBehaviour
 	public AudioClip selectAudio;
 	protected AudioSource sourceAudio;
 
-	protected int current;
-	protected List<Button> buttons;
-	protected bool checkAxes;
-
-	/// <summary>
-	/// Awake this instance.
-	/// </summary>
-	public virtual void Awake ()
-	{
-		checkAxes = false;
-
-	}
+	public EventSystem ES;
+	private GameObject storeSelected;
 
 	/// <summary>
 	/// Start this instance.
+	/// Get audiosource
+	/// Let the time flow
+	/// store first selected object
 	/// </summary>
 	public virtual void Start ()
 	{
-		buttons = new List<Button> ();
 		sourceAudio = GetComponent<AudioSource> ();
 		Time.timeScale = 1f;
-		current = 0;
+		storeSelected = ES.firstSelectedGameObject;
 	}
 
 	/// <summary>
-	/// Input when in pause menu mode
+	/// Update this instance.
+	/// Apply mouse conflict fix
 	/// </summary>
-	public void InputMap ()
+	public virtual void Update ()
 	{
-
-		if (Input.GetAxisRaw ("Vertical") == 1 && checkAxes) {
-			sourceAudio.PlayOneShot (selectAudio);
-			current = (current <= 0) ? 0 : --current;
-			buttons [current].Select ();
-			checkAxes = false;
-		}
-
-		if (Input.GetAxisRaw ("Vertical") == -1 && checkAxes) {
-			sourceAudio.PlayOneShot (selectAudio);
-			int count = buttons.Count - 1;
-			current = (current == count) ? count : ++current;
-			buttons [current].Select ();
-			checkAxes = false;
-		}
-
-		if (Input.GetAxisRaw ("Vertical") == 0 && !checkAxes) {
-			checkAxes = true;
-		}
-
+		FixMouseConflictController ();
 	}
+
+	/// <summary>
+	/// If we use the mouse, we loose focus
+	/// on the button and the navigation become impossible
+	/// with a controller. This fix assure that a button is
+	/// always selected.
+	/// </summary>
+	public void FixMouseConflictController ()
+	{
+		if (ES.currentSelectedGameObject != storeSelected) {
+
+			sourceAudio.PlayOneShot (selectAudio);
+
+			if (ES.currentSelectedGameObject == null) {
+				ES.SetSelectedGameObject (storeSelected);
+			} else {
+				storeSelected = ES.currentSelectedGameObject;
+			}
+		}	
+	}
+ 
 }

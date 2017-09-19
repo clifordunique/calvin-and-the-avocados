@@ -7,7 +7,8 @@ public class WorldMapMenu : MenuController
 {
 
 	public GameObject worlds;
-	public Image view;
+	private List<Button> buttons;
+	private int current;
 
 	/// <summary>
 	/// Start this instance.
@@ -20,16 +21,8 @@ public class WorldMapMenu : MenuController
 
 		buttons = new List<Button> (worldButtons);
 		current = GetNextLevel (Session.lastPlayedScene);
-		buttons [current].Select ();
+		ES.SetSelectedGameObject (buttons [current].gameObject);
 
-	}
-
-	/// <summary>
-	/// Update this instance.
-	/// </summary>
-	void Update ()
-	{
-		InputMap ();
 	}
 
 	/// <summary>

@@ -15,18 +15,12 @@ public class PauseMenu : MenuController
 	private bool isPaused = false;
 	public GameObject pauseMenu;
 
-	// UI
-	public Button resume;
-	public Button restart;
-	public Button quit;
-
 	// variable
 	private Player player;
 
 	// On awake
-	public override void Awake ()
+	public void Awake ()
 	{
-		base.Awake ();
 		isPaused = false;
 	}
 
@@ -35,48 +29,29 @@ public class PauseMenu : MenuController
 	/// </summary>
 	public override void Start ()
 	{
-
 		base.Start ();
-
 		player = GetComponent<Player> ();
 		player.inputEnable = true;
-
-		// resume button
-		resume = resume.GetComponent<Button> ();
-		resume.onClick.AddListener (PauseManager);
-		buttons.Add (resume);
-
-		// restart button
-		restart = restart.GetComponent<Button> ();
-		restart.onClick.AddListener (RestartManager);
-		buttons.Add (restart);
-
-		// quit button
-		quit = quit.GetComponent<Button> ();
-		quit.onClick.AddListener (QuitManager);
-		buttons.Add (quit);
-
 	}
 
 	/// <summary>
 	/// Update this instance.
 	/// </summary>
-	private void Update ()
+	public override void Update ()
 	{
+		if (isPaused) {
+			base.Update ();
+		}
 
 		if (Input.GetButtonDown ("Pause")) {
 			PauseManager ();
-		}
-
-		if (!player.inputEnable && !player.hasVictory) {
-			InputMap ();
 		}
 	}
 
 	/// <summary>
 	/// Pause/unpause game
 	/// </summary>
-	private void PauseManager ()
+	public void PauseManager ()
 	{
 		isPaused = !isPaused;
 		Time.timeScale = (isPaused) ? 0f : 1f;
@@ -87,7 +62,7 @@ public class PauseMenu : MenuController
 	/// <summary>
 	/// Restart level
 	/// </summary>
-	static void RestartManager ()
+	public void RestartManager ()
 	{
 		string scene = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene (scene);
@@ -96,7 +71,7 @@ public class PauseMenu : MenuController
 	/// <summary>
 	/// Load main menu
 	/// </summary>
-	static void QuitManager ()
+	public void QuitManager ()
 	{
 		SceneManager.LoadScene ("menu");
 	}
