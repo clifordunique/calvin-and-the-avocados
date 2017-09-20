@@ -79,7 +79,7 @@ public class Score : MonoBehaviour
 	private void StopTimer ()
 	{
 		dataSaved = true;
-		localPlayerData.Add ("Luc", float.Parse (scoreText.text));
+		localPlayerData.Add (Session.playerName, float.Parse (scoreText.text));
 
 		SaveLoadController.Save (scene);
 	}
