@@ -41,8 +41,9 @@ public class Player : MonoBehaviour
 	// e.g. x: 18 y: 17
 	public Vector2 wallLeap;
 
-	public float wallSlideSpeedMax = 3;
-	public float wallStickTime = .25f;
+	private float wallSlideSpeedMin = 3;
+	private float wallSlideSpeedMax = 12;
+	private float wallStickTime = .25f;
 	private float timeToWallUnstick;
 
 	// velocity and gravity
@@ -250,10 +251,18 @@ public class Player : MonoBehaviour
 
 			wallSliding = true;
 
-			// don't pass max sliding speed
-			if (velocity.y < -wallSlideSpeedMax) {
+			// min slide speed
+			if (velocity.y < -wallSlideSpeedMin && directionalInput.y >= 0) {
+				velocity.y = -wallSlideSpeedMin;
+			}
+
+			Debug.Log (directionalInput.y);
+
+			// max slide speed
+			if (velocity.y < -wallSlideSpeedMax && directionalInput.y == -1) {
 				velocity.y = -wallSlideSpeedMax;
 			}
+
 
 			if (timeToWallUnstick > 0) {
 				velocityXSmoothing = 0;
