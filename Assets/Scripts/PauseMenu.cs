@@ -73,6 +73,6 @@ public class PauseMenu : MenuController
 	/// </summary>
 	public void QuitManager ()
 	{
-		SceneManager.LoadScene ("menu");
+		SceneManager.LoadScene ("worldmap");
 	}
 }
