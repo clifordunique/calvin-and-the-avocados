@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
 	protected AudioSource sourceAudio;
 
 	public EventSystem ES;
-	private GameObject storeSelected;
+	protected GameObject storeSelected;
 
 	/// <summary>
 	/// Start this instance.

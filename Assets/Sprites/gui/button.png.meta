@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 582beafade85e405cb81cfef1418f39a
-timeCreated: 1505890746
+timeCreated: 1505910545
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: button_0
     21300002: button_1
+    21300004: button_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -128,9 +129,23 @@ TextureImporter:
       name: button_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 32
+        width: 40
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 1, z: 5, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: button_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -139,16 +154,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: button_1
+      name: button_2
       rect:
         serializedVersion: 2
-        x: 39
+        x: 46
         y: 0
-        width: 16
+        width: 40
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 1, z: 1, w: 1}
+      border: {x: 5, y: 1, z: 5, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
