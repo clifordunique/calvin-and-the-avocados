@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 38404415}
   - component: {fileID: 38404414}
   m_Layer: 9
-  m_Name: level_rock1 (2)
+  m_Name: brick2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,11 +212,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 38404412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.98, y: 19.68, z: 0}
+  m_LocalPosition: {x: -1.5299993, y: 20.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 573827836}
-  m_RootOrder: 4
+  m_Father: {fileID: 619667669}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &38404414
 BoxCollider2D:
@@ -268,7 +268,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 158115378}
   - component: {fileID: 158115377}
   m_Layer: 9
-  m_Name: level_rock2 (1)
+  m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,11 +311,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 158115375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.47, y: 29.78, z: 0}
+  m_LocalPosition: {x: -1.0199995, y: 29.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 573827836}
-  m_RootOrder: 5
+  m_Father: {fileID: 619667669}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &158115377
 BoxCollider2D:
@@ -367,7 +367,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -489,7 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 195287649}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Backgrounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,10 +505,7 @@ Transform:
   m_LocalPosition: {x: -2.4695222, y: -2.2204547, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 706745599}
-  - {fileID: 1532877897}
-  - {fileID: 940946994}
-  - {fileID: 756429927}
+  - {fileID: 1191962043}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -617,7 +614,7 @@ GameObject:
   - component: {fileID: 323664270}
   - component: {fileID: 323664269}
   m_Layer: 9
-  m_Name: level_rock1 (3)
+  m_Name: brick2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,11 +627,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 323664267}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.110001, y: 25.91, z: 0}
+  m_LocalPosition: {x: -8.85, y: 25.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 573827836}
-  m_RootOrder: 6
+  m_Father: {fileID: 619667669}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &323664269
 BoxCollider2D:
@@ -686,7 +683,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -714,7 +711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 394139736}
   m_Layer: 0
-  m_Name: Danger
+  m_Name: Dangers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -995,7 +992,7 @@ GameObject:
   - component: {fileID: 573827836}
   - component: {fileID: 573827835}
   m_Layer: 0
-  m_Name: Level
+  m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,14 +1033,7 @@ Transform:
   m_LocalPosition: {x: -5.5, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1127133475}
-  - {fileID: 1720962241}
-  - {fileID: 1731032628}
-  - {fileID: 1514079942}
-  - {fileID: 38404413}
-  - {fileID: 158115376}
-  - {fileID: 323664268}
-  - {fileID: 1707438177}
+  - {fileID: 619667669}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1169,6 +1159,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 38.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &619667668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 619667669}
+  m_Layer: 0
+  m_Name: levels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &619667669
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 619667668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1127133475}
+  - {fileID: 1720962241}
+  - {fileID: 1514079942}
+  - {fileID: 38404413}
+  - {fileID: 158115376}
+  - {fileID: 323664268}
+  - {fileID: 1707438177}
+  m_Father: {fileID: 573827836}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706745598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1205,7 @@ GameObject:
   - component: {fileID: 706745601}
   - component: {fileID: 706745600}
   m_Layer: 0
-  m_Name: cloud speed max
+  m_Name: cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,7 +1221,7 @@ Transform:
   m_LocalPosition: {x: -23.68, y: 0.76, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
-  m_Father: {fileID: 195287649}
+  m_Father: {fileID: 1191962043}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &706745600
@@ -1211,12 +1236,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BufferLimitX: 10
-  minSpeed: 15
-  maxSpeed: 20
+  minSpeed: 2
+  maxSpeed: 8
   minY: 0
   maxY: 35
-  maxScale: 10
-  minScale: 20
+  maxScale: 2
+  minScale: 8
   onFirstLayer: 0
 --- !u!212 &706745601
 SpriteRenderer:
@@ -1243,7 +1268,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1289,7 +1314,7 @@ Transform:
   m_LocalPosition: {x: -23.44, y: 8.55, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
-  m_Father: {fileID: 195287649}
+  m_Father: {fileID: 1191962043}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &756429928
@@ -1305,11 +1330,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BufferLimitX: 10
   minSpeed: 2
-  maxSpeed: 5
+  maxSpeed: 8
   minY: 0
   maxY: 35
-  maxScale: 5
-  minScale: 10
+  maxScale: 2
+  minScale: 8
   onFirstLayer: 0
 --- !u!212 &756429929
 SpriteRenderer:
@@ -1336,7 +1361,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1456,7 +1481,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1663,7 +1688,7 @@ Transform:
   m_LocalPosition: {x: -23.46, y: 3.06, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
-  m_Father: {fileID: 195287649}
+  m_Father: {fileID: 1191962043}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &940946995
@@ -1678,12 +1703,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BufferLimitX: 10
-  minSpeed: 8
-  maxSpeed: 10
+  minSpeed: 2
+  maxSpeed: 8
   minY: 5
   maxY: 35
-  maxScale: 20
-  minScale: 40
+  maxScale: 2
+  minScale: 8
   onFirstLayer: 0
 --- !u!212 &940946996
 SpriteRenderer:
@@ -1710,7 +1735,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1772,7 +1797,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1798,7 +1823,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947674547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.965, y: 28.581, z: 0}
+  m_LocalPosition: {x: -6.5149994, y: 28.001, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2137,7 +2162,7 @@ GameObject:
   - component: {fileID: 1127133477}
   - component: {fileID: 1127133476}
   m_Layer: 9
-  m_Name: level_rock2
+  m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2153,7 +2178,7 @@ Transform:
   m_LocalPosition: {x: 5.5, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 573827836}
+  m_Father: {fileID: 619667669}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1127133476
@@ -2206,7 +2231,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2267,6 +2292,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1191962042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1191962043}
+  m_Layer: 0
+  m_Name: clouds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1191962043
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191962042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 706745599}
+  - {fileID: 1532877897}
+  - {fileID: 940946994}
+  - {fileID: 756429927}
+  m_Father: {fileID: 195287649}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209142603
 GameObject:
@@ -2587,7 +2644,7 @@ GameObject:
   - component: {fileID: 1514079944}
   - component: {fileID: 1514079943}
   m_Layer: 9
-  m_Name: level_rock1 (1)
+  m_Name: brick2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2600,11 +2657,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514079941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.11, y: 13.68, z: 0}
+  m_LocalPosition: {x: -8.849999, y: 13.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 573827836}
-  m_RootOrder: 3
+  m_Father: {fileID: 619667669}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1514079943
 BoxCollider2D:
@@ -2656,7 +2713,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2684,7 +2741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514193945}
   m_Layer: 0
-  m_Name: LevelTitle
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2799,7 +2856,7 @@ Transform:
   m_LocalPosition: {x: -23.53, y: 5.47, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
-  m_Father: {fileID: 195287649}
+  m_Father: {fileID: 1191962043}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1532877898
@@ -2815,11 +2872,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BufferLimitX: 10
   minSpeed: 2
-  maxSpeed: 5
+  maxSpeed: 8
   minY: 0
   maxY: 35
-  maxScale: 10
-  minScale: 20
+  maxScale: 2
+  minScale: 8
   onFirstLayer: 0
 --- !u!212 &1532877899
 SpriteRenderer:
@@ -2846,7 +2903,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3213,7 +3270,7 @@ GameObject:
   - component: {fileID: 1707438179}
   - component: {fileID: 1707438178}
   m_Layer: 9
-  m_Name: level_rock2 (2)
+  m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3226,11 +3283,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1707438176}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4700003, y: 30.198, z: 0}
+  m_LocalPosition: {x: -1.0199995, y: 29.618, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 573827836}
-  m_RootOrder: 7
+  m_Father: {fileID: 619667669}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1707438178
 BoxCollider2D:
@@ -3282,7 +3339,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3312,7 +3369,7 @@ GameObject:
   - component: {fileID: 1720962243}
   - component: {fileID: 1720962242}
   m_Layer: 9
-  m_Name: level_rock1
+  m_Name: brick2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3325,10 +3382,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1720962240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.11, y: 6.61, z: 0}
+  m_LocalPosition: {x: -1.6599989, y: 7.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 573827836}
+  m_Father: {fileID: 619667669}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1720962242
@@ -3381,7 +3438,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3400,34 +3457,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1731032627
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1731032628}
-  m_Layer: 0
-  m_Name: Tree
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1731032628
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1731032627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 573827836}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886867406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3495,7 +3524,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"morito"'
+  m_Text: '"MOJITO"'
 --- !u!222 &1886867409
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3527,7 +3556,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1961999872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 448.8086, y: 300.36084, z: 0.01953125}
+  m_LocalPosition: {x: 715.8086, y: 456.36084, z: 0.01953125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430969744}
@@ -3734,7 +3763,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchSeams: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3829,8 +3858,6 @@ MonoBehaviour:
   wallJumpClimb: {x: 7.5, y: 16}
   wallJumpOff: {x: 8.5, y: 7}
   wallLeap: {x: 18, y: 17}
-  wallSlideSpeedMax: 3
-  wallStickTime: 0.25
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   inputEnable: 0
@@ -3984,7 +4011,7 @@ RectTransform:
   m_Children:
   - {fileID: 261884082}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4019,7 +4046,7 @@ RectTransform:
   - {fileID: 1631105918}
   - {fileID: 993821730}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
