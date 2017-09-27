@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WorldMapMenu : MenuController
 {
@@ -41,6 +42,15 @@ public class WorldMapMenu : MenuController
 		}
 
 		return selected;
+	}
+
+	/// <summary>
+	/// Go back to player info.
+	/// </summary>
+	/// <returns>The back manager.</returns>
+	public void GoBackManager ()
+	{
+		SceneManager.LoadSceneAsync ("playerInfo");
 	}
 
 }

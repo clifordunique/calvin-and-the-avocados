@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/boxe.unity
     guid: d49e774fd25664aa692501a7fc4db9bc
   - enabled: 1
+    path: Assets/Scenes/avocado.unity
+    guid: 02f5afecc6992495287f4ea46cb85abc
+  - enabled: 1
+    path: Assets/Scenes/beauty.unity
+    guid: 78a9f5dde009f490d8ee88e256125366
+  - enabled: 1
+    path: Assets/Scenes/youtube.unity
+    guid: 9c4509f118c2640e2ae273772d08d784
+  - enabled: 1
     path: Assets/Scenes/candy.unity
     guid: 76e8850a93c7045b596d5d0225823b2d
   - enabled: 1
