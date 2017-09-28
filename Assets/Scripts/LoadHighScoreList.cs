@@ -44,8 +44,6 @@ public class LoadHighScoreList : MonoBehaviour, ISelectHandler
 		SaveLoadController.Load (gameObject.name);
 		localData.set (SaveLoadController.savedGames);
 
-		Debug.Log (gameObject.name);
-
 		if (localData.score.Count > 0) {
 			highScoreList.text = "";
 			for (int i = 0; i < localData.score.Count; i++) {

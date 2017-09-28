@@ -256,8 +256,6 @@ public class Player : MonoBehaviour
 				velocity.y = -wallSlideSpeedMin;
 			}
 
-			Debug.Log (directionalInput.y);
-
 			// max slide speed
 			if (velocity.y < -wallSlideSpeedMax && directionalInput.y == -1) {
 				velocity.y = -wallSlideSpeedMax;
@@ -307,7 +305,6 @@ public class Player : MonoBehaviour
 	private void HandleVictory ()
 	{
 		if (!hasVictory) {
-			Debug.Log ("has victory");
 			sourceAudio.Stop ();
 			sourceAudio.PlayOneShot (victoryAudio);
 			hasVictory = true;

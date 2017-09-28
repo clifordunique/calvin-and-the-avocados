@@ -38,8 +38,6 @@ public class GameSerialization
 		while (i < score.Count && index == -1) {
 			if (_score < score [i]) {
 				index = i;
-				Debug.Log (i);
-				Debug.Log (index);
 			}
 
 			i++;

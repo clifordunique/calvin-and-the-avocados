@@ -7,6 +7,7 @@ public class PlayerInfoMenu  : MenuController
 
 	public Text warning;
 	public InputField playerName;
+	public GameObject levelLoader;
 
 	/// <summary>
 	/// Start this instance.
@@ -33,7 +34,12 @@ public class PlayerInfoMenu  : MenuController
 		string text = playerName.text;
 		if (text.Length > 0) {
 			Session.playerName = playerName.text;
-			SceneManager.LoadSceneAsync ("worldmap");
+
+			if (Session.isSpeedrunMode) {
+				levelLoader.GetComponent<LevelLoader> ().LoadLevel ("bowie");
+			} else {
+				SceneManager.LoadSceneAsync ("worldmap");
+			}
 		} else {
 			warning.text = "name should not be empty";
 		}

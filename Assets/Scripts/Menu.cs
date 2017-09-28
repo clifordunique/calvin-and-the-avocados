@@ -21,6 +21,16 @@ public class Menu : MenuController
 	}
 
 	/// <summary>
+	/// Adventures the manager.
+	/// </summary>
+	/// <returns>The manager.</returns>
+	public void AdventureManager ()
+	{
+		Session.isSpeedrunMode = true;
+		SceneManager.LoadSceneAsync ("playerInfo");
+	}
+
+	/// <summary>
 	/// Quit application
 	/// </summary>
 	public void QuitManager ()
