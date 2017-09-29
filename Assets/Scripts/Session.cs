@@ -6,6 +6,7 @@ public static class Session
 {
 	public static string playerName = "";
 	public static string lastPlayedScene = "bowie";
+	public static string lastLevel = "avocado";
 
 	public static bool isSpeedrunMode = false;
 

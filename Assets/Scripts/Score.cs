@@ -79,9 +79,20 @@ public class Score : MonoBehaviour
 	private void StopTimer ()
 	{
 		dataSaved = true;
-		localPlayerData.Add (Session.playerName, float.Parse (scoreText.text));
 
-		SaveLoadController.Save (scene);
+		if (Session.isSpeedrunMode) {
+			Session.globalTime += float.Parse (scoreText.text);
+
+			if (Session.lastLevel == scene) {
+				localPlayerData.Add (Session.playerName, Session.globalTime);
+				SaveLoadController.Save ("adventure");
+			}
+			Debug.Log ("=====");
+			Debug.Log (Session.globalTime);
+		} else {
+			localPlayerData.Add (Session.playerName, float.Parse (scoreText.text));
+			SaveLoadController.Save (scene);
+		}
 	}
 
 	/// <summary>
