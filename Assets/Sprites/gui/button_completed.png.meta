@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 582beafade85e405cb81cfef1418f39a
-timeCreated: 1507032213
+guid: 82be7b61d624e4e579ace9ff70e662b6
+timeCreated: 1507035205
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: button_0
-    21300002: button_1
-    21300004: button_2
-    21300006: button_3
+    21300000: button_completed_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -127,52 +124,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_0
+      name: button_completed_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 40
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 1, z: 5, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: button_1
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 1, z: 1, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: button_2
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 0
-        width: 40
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 1, z: 5, w: 1}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: button_3
-      rect:
-        serializedVersion: 2
-        x: 145
+        x: 17
         y: 0
         width: 16
         height: 16
