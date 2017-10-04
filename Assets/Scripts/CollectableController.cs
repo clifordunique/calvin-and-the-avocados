@@ -69,6 +69,8 @@ public class CollectableController : MonoBehaviour
 
 		if (Session.isSpeedrunMode) {
 			levelLoader.GetComponent<LevelLoader> ().LoadLevel (level);
+		} else if (Session.lastLevel == SceneManager.GetActiveScene ().name) {
+			SceneManager.LoadSceneAsync ("credits");
 		} else {
 			Session.lastPlayedScene = SceneManager.GetActiveScene ().name;
 			SceneManager.LoadSceneAsync ("worldmap");
