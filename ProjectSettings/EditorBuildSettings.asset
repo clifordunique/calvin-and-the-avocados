@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/candy.unity
     guid: 76e8850a93c7045b596d5d0225823b2d
   - enabled: 1
+    path: Assets/Scenes/credits.unity
+    guid: afe2b71f777cf4acbbe96bce6a57222f
+  - enabled: 1
     path: Assets/Scenes/chillipepper.unity
     guid: 3a0e1bd0827ba4ca584ebe348fb037d1
   - enabled: 1
