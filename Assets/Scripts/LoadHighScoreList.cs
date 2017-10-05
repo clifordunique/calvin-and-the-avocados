@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -9,6 +8,7 @@ public class LoadHighScoreList : MonoBehaviour, ISelectHandler
 {
 
 	public Text highScoreList;
+	public Sprite completed;
 	public GameSerialization localData = new GameSerialization ();
 
 	/// <summary>
@@ -19,11 +19,8 @@ public class LoadHighScoreList : MonoBehaviour, ISelectHandler
 		SaveLoadController.Load (gameObject.name);
 		localData.set (SaveLoadController.savedGames);
 		if (localData.score.Count > 0 && localData.name.Contains (Session.playerName)) {
-			Debug.Log (gameObject.name + " has save");
-			Text text = GetComponentInChildren<Text> ();
-			Sprite sprite = (Sprite)AssetDatabase.LoadAssetAtPath ("Assets/Sprites/gui/button_completed.png", typeof(Sprite));
 			Image image = gameObject.GetComponent<Image> ();
-			image.sprite = sprite;
+			image.sprite = completed;
 		}
 
 	}
