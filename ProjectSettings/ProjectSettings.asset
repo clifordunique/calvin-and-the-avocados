@@ -233,8 +233,8 @@ PlayerSettings:
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
-  AndroidTangoUsesCamera: 1
   androidEnableBanner: 1
+  androidUseLowAccuracyLocation: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -248,30 +248,37 @@ PlayerSettings:
       m_Icon: {fileID: 2800000, guid: f8ce5d13ea5df4f83b99880936996b1a, type: 3}
       m_Width: 1024
       m_Height: 1024
+      m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 5b6ea46d5355b495b8fbc1a6886a41b0, type: 3}
       m_Width: 512
       m_Height: 512
+      m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: c638ceaf9d56741788467b2cf7ddc8e4, type: 3}
       m_Width: 256
       m_Height: 256
+      m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 1404bd95cf8514295b51b8d8da564067, type: 3}
       m_Width: 128
       m_Height: 128
+      m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 69f903eb2e627444e9088a5c464f8ce3, type: 3}
       m_Width: 48
       m_Height: 48
+      m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 971d34ad084ca46eaabc9b557b8f0f3a, type: 3}
       m_Width: 32
       m_Height: 32
+      m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 7679381a921f740e6a003561f5b3ca99, type: 3}
       m_Width: 16
       m_Height: 16
+      m_Kind: 0
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
