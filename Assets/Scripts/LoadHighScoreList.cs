@@ -8,6 +8,7 @@ public class LoadHighScoreList : MonoBehaviour, ISelectHandler
 {
 
 	public Text highScoreList;
+	public Text level;
 	public Sprite completed;
 	public GameSerialization localData = new GameSerialization ();
 
@@ -32,7 +33,16 @@ public class LoadHighScoreList : MonoBehaviour, ISelectHandler
 	public void OnSelect (BaseEventData data)
 	{
 		Debug.Log (gameObject.name + " Selected");
+		LoadLevelName ();
 		LoadHighScore ();
+	}
+
+	/// <summary>
+	/// Load level name
+	/// </summary>
+	private void LoadLevelName ()
+	{
+		level.text = "-" + gameObject.name + "-";
 	}
 
 	/// <summary>
