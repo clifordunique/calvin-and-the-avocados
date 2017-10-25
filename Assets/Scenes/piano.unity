@@ -4814,8 +4814,8 @@ MonoBehaviour:
   lookAheadDstX: 4
   lookSmoothTimeX: 0.5
   verticalSmoothTime: 0.2
-  bottomLeftLimit: {x: -5.14, y: -8.57}
-  topRightLimit: {x: 66.2, y: 15.55}
+  bottomLeftLimit: {x: -6.8, y: -8.57}
+  topRightLimit: {x: 66.2, y: 18.54}
   focusAreaSize: {x: 6, y: 5}
 --- !u!1 &1406592077
 GameObject:
