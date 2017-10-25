@@ -4894,7 +4894,7 @@ MonoBehaviour:
   waitForPlayer: 0
   delay: 1
   canMove: 0
-  speed: 9
+  speed: 6
   cyclic: 0
   waitTime: 1
 --- !u!114 &1532851593
