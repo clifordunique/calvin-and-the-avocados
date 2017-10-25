@@ -79,8 +79,9 @@ public class Score : MonoBehaviour
 	private void StopTimer ()
 	{
 		dataSaved = true;
+		Debug.Log("isSpeedrunMode " + Session.isSpeedrunMode);
 
-		if (Session.isSpeedrunMode) {
+		if (Session.isSpeedrunMode == true) {
 			Session.globalTime += float.Parse (scoreText.text);
 
 			if (Session.lastLevel == scene) {

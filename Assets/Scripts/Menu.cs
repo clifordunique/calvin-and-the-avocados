@@ -17,6 +17,7 @@ public class Menu : MenuController
 	/// <returns>The manager.</returns>
 	public void StartManager ()
 	{
+		Session.isSpeedrunMode = false;
 		SceneManager.LoadSceneAsync ("playerInfo");
 	}
 
