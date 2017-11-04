@@ -185,10 +185,6 @@ public class Player : MonoBehaviour
 			if (wallDirX == directionalInput.x) {
 				velocity.x = -wallDirX * wallJumpClimb.x;
 				velocity.y = wallJumpClimb.y;
-			} else if (directionalInput.x == 0) {
-				// ain't touching the direction controller
-				velocity.x = -wallDirX * wallJumpOff.x;
-				velocity.y = wallJumpOff.y;
 			} else {
 				// input is opposite direction
 				velocity.x = -wallDirX * wallLeap.x;
