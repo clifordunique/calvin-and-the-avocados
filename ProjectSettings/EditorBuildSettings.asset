@@ -74,6 +74,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/giguere.unity
     guid: faef21f40b7cb1e4ca66c230043020bf
+  - enabled: 0
+    path: Assets/Scenes/bonus.unity
+    guid: a2b8059617b774e779c1cc63f245bb13
   - enabled: 1
     path: Assets/Scenes/quidditch.unity
     guid: 384704d7e73071e448abb71c50b9a0df
